@@ -1,28 +1,24 @@
-
-
-package bartender.karim;
+package br.com.bartender.model;
 import java.util.ArrayList;
 /**
  *
- * @author Adriana
+ * @author felipe_beck
  */
 public class Comanda {
     
     private Integer idComanda;
     private String nomeClienteComanda;
-    private String telefoneClienteComanda;
     private String sexoClienteComanda;
-    private Double valorEntradaComanda;
-    private ArrayList<Produto> consumoComanda;
+    private String telefoneClienteComanda;       
     private boolean situacaoComanda;
     private String tipoPagamentoComanda;
+    private ArrayList<Produto> consumoComanda;
 
-    public Comanda(Integer idComanda, String nomeClienteComanda, String telefoneClienteComanda, String sexoClienteComanda, Double valorEntradaComanda, ArrayList<Produto> consumoComanda, boolean situacaoComanda, String tipoPagamentoComanda) {
+    public Comanda(Integer idComanda, String nomeClienteComanda, String telefoneClienteComanda, String sexoClienteComanda, ArrayList<Produto> consumoComanda, boolean situacaoComanda, String tipoPagamentoComanda) {
         this.idComanda = idComanda;
         this.nomeClienteComanda = nomeClienteComanda;
         this.telefoneClienteComanda = telefoneClienteComanda;
-        this.sexoClienteComanda = sexoClienteComanda;
-        this.valorEntradaComanda = valorEntradaComanda;
+        this.sexoClienteComanda = sexoClienteComanda;        
         this.consumoComanda = consumoComanda;
         this.situacaoComanda = situacaoComanda;
         this.tipoPagamentoComanda = tipoPagamentoComanda;
@@ -59,14 +55,6 @@ public class Comanda {
 
     public void setSexoClienteComanda(String sexoClienteComanda) {
         this.sexoClienteComanda = sexoClienteComanda;
-    }
-
-    public Double getValorEntradaComanda() {
-        return valorEntradaComanda;
-    }
-
-    public void setValorEntradaComanda(Double valorEntradaComanda) {
-        this.valorEntradaComanda = valorEntradaComanda;
     }
 
     public ArrayList<Produto> getConsumoComanda() {

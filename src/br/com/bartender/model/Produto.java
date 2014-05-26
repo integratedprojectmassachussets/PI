@@ -1,16 +1,14 @@
-
-
-package bartender.karim;
+package br.com.bartender.model;
 
 /**
  *
- * @author Adriana
+ * @author felipe_beck
  */
 public class Produto {
     
     private Integer idProduto;
-    private String tipoProduto;
     private String nomeProduto;
+    private String tipoProduto;    
     private Double valorProduto;
 
     

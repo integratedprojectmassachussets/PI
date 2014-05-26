@@ -1,29 +1,32 @@
-package bartender.karim;
+package br.com.bartender.model;
 
 import java.util.Date;
 
 /**
  *
- * @author Adriana
+ * @author felipe_beck
  */
 public class Evento {
     
     private Integer idEvento;
     private String nomeEvento;
-    private Date dataInicioEvento;
-    private Date dataFimEvento;
+    private Date dataEvento;  
+    private String horaInicio;
+    private String horaFim;
     private Double valorMasc;
     private Double valorFem;
 
-    public Evento(Integer idEvento, String nomeEvento, Date dataInicioEvento, Date dataFimEvento, Double valorMasc, Double valorFem) {
+    public Evento(Integer idEvento, String nomeEvento, Date dataEvento, String horaInicio, String horaFim, Double valorMasc, Double valorFem) {
         this.idEvento = idEvento;
         this.nomeEvento = nomeEvento;
-        this.dataInicioEvento = dataInicioEvento;
-        this.dataFimEvento = dataFimEvento;
+        this.dataEvento = dataEvento;
+        this.horaInicio = horaInicio;
+        this.horaFim = horaFim;
         this.valorMasc = valorMasc;
         this.valorFem = valorFem;
     }
-    
+
+     
     
     public Integer getIdEvento() {
         return idEvento;
@@ -41,20 +44,28 @@ public class Evento {
         this.nomeEvento = nomeEvento;
     }
 
-    public Date getDataInicioEvento() {
-        return dataInicioEvento;
+    public Date getDataEvento() {
+        return dataEvento;
     }
 
-    public void setDataInicioEvento(Date dataInicioEvento) {
-        this.dataInicioEvento = dataInicioEvento;
+    public void setDataEvento(Date dataEvento) {
+        this.dataEvento = dataEvento;
     }
 
-    public Date getDataFimEvento() {
-        return dataFimEvento;
+    public String getHoraInicio() {
+        return horaInicio;
     }
 
-    public void setDataFimEvento(Date dataFimEvento) {
-        this.dataFimEvento = dataFimEvento;
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public String getHoraFim() {
+        return horaFim;
+    }
+
+    public void setHoraFim(String horaFim) {
+        this.horaFim = horaFim;
     }
 
     public Double getValorMasc() {
@@ -72,8 +83,9 @@ public class Evento {
     public void setValorFem(Double valorFem) {
         this.valorFem = valorFem;
     }
+
     
-    
+
     
     
     

@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-package bartender.karim;
+package br.com.bartender.view;
+
+import br.com.bartender.model.Relatorio;
 
 /**
  *

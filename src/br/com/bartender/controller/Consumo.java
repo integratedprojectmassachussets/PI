@@ -1,10 +1,11 @@
-
-package bartender.karim;
+package br.com.bartender.controller;
+import br.com.bartender.model.Comanda;
+import br.com.bartender.model.Produto;
 import javax.swing.JOptionPane; 
 
 /**
  *
- * @author Adriana
+ * @author felipe_beck
  */
 
 public class Consumo {

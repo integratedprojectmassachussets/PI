@@ -1,12 +1,10 @@
-
-
-package bartender.karim;
+package br.com.bartender.model;
 
 /**
  *
- * @author Adriana
+ * @author felipe_beck
  */
-public class BartenderKarim {
+public class Bartender {
 
     /**
      * @param args the command line arguments
