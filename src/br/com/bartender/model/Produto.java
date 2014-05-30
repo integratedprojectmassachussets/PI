@@ -11,13 +11,7 @@ public class Produto {
     private String tipoProduto;    
     private Double valorProduto;
 
-    
-    public Produto(Integer idProduto, String tipoProduto, String nomeProduto, Double valorProduto) {
-        this.idProduto = idProduto;
-        this.tipoProduto = tipoProduto;
-        this.nomeProduto = nomeProduto;
-        this.valorProduto = valorProduto;
-    }
+
     
     public Integer getIdProduto() {
         return idProduto;

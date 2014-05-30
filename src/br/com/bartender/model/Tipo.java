@@ -1,4 +1,4 @@
-package br.com.bartender.controller;
+package br.com.bartender.model;
 
 /**
  *

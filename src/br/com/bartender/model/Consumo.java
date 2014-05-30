@@ -1,4 +1,4 @@
-package br.com.bartender.controller;
+package br.com.bartender.model;
 import br.com.bartender.model.Comanda;
 import br.com.bartender.model.Produto;
 import javax.swing.JOptionPane; 
