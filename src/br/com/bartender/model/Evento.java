@@ -10,21 +10,12 @@ public class Evento {
     
     private Integer idEvento;
     private String nomeEvento;
-    private Date dataEvento;  
-    private String horaInicio;
-    private String horaFim;
+    private String dataEvento;  
+    private String horarioEvento;
     private Double valorMasc;
     private Double valorFem;
 
-    public Evento(Integer idEvento, String nomeEvento, Date dataEvento, String horaInicio, String horaFim, Double valorMasc, Double valorFem) {
-        this.idEvento = idEvento;
-        this.nomeEvento = nomeEvento;
-        this.dataEvento = dataEvento;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
-        this.valorMasc = valorMasc;
-        this.valorFem = valorFem;
-    }
+    
 
      
     
@@ -44,29 +35,22 @@ public class Evento {
         this.nomeEvento = nomeEvento;
     }
 
-    public Date getDataEvento() {
+    public String getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(Date dataEvento) {
+    public void setDataEvento(String dataEvento) {
         this.dataEvento = dataEvento;
     }
 
-    public String getHoraInicio() {
-        return horaInicio;
+    public String getHorarioEvento() {
+        return horarioEvento;
     }
 
-    public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setHorarioEvento(String horaInicio) {
+        this.horarioEvento = horarioEvento;
     }
 
-    public String getHoraFim() {
-        return horaFim;
-    }
-
-    public void setHoraFim(String horaFim) {
-        this.horaFim = horaFim;
-    }
 
     public Double getValorMasc() {
         return valorMasc;
