@@ -8,12 +8,12 @@ package br.com.bartender.view;
  *
  * @author felipe_beck
  */
-public class NovaComandaUI extends javax.swing.JPanel {
+public class ManutencaoComandaUI extends javax.swing.JPanel {
 
     /**
      * Creates new form NovaComandaUI
      */
-    public NovaComandaUI() {
+    public ManutencaoComandaUI() {
         initComponents();
     }
 
