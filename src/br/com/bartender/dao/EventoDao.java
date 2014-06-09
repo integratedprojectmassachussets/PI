@@ -43,7 +43,7 @@ public class EventoDao {
             pst.setString(1, evento.getNomeEvento());
             pst.setString(3, evento.getDataEvento());
             pst.setString(3, evento.getHorarioEvento());
-            pst.setDouble(3, evento.);
+           /* pst.setDouble(3, evento.);*/
             pst.execute();
             con.closeConnection();
         } catch (SQLException ex) {
@@ -60,7 +60,7 @@ public class EventoDao {
             while( rs.next() ){
                 Evento p = new Evento();
                 p.setNomeEvento(rs.getString("NOMEPRODUTO"));
-                p.setValorEvento(rs.getDouble("VALORPRODUTO"));
+              /*  p.setValorEvento(rs.getDouble("VALORPRODUTO"));*/
                 /*p.setIdEvento(rs.getInt("Id"));*/
                 
                 this.listaEvento.add( p );
@@ -79,7 +79,7 @@ public class EventoDao {
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setString(1,evento.getNomeEvento());
-            st.setDouble(2,evento.getValorEvento());
+           /* st.setDouble(2,evento.getValorEvento());*/
             /*st.setInt(3,evento.getIdEvento());*/
             st.executeQuery(query);
            

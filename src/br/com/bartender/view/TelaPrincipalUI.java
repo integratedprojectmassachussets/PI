@@ -1,7 +1,7 @@
 package br.com.bartender.view;
 
 import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,23 +32,31 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jdpPainelPrincipal = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jtfBotaoEvento = new javax.swing.JButton();
+        jtfBotaoComanda = new javax.swing.JButton();
+        jtfBotaoProduto = new javax.swing.JButton();
+        jtfBotaoRelatorio = new javax.swing.JButton();
+        jtfBotaoSair = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jtfEvento = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuProduto = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jtfEventoListar = new javax.swing.JMenuItem();
+        jtfComanda = new javax.swing.JMenu();
+        jtfComandaNovo = new javax.swing.JMenuItem();
+        jtfConsumoNovo = new javax.swing.JMenuItem();
+        jtfComandaListar = new javax.swing.JMenuItem();
+        jtfProduto = new javax.swing.JMenu();
+        jtfProdutoNovo = new javax.swing.JMenuItem();
+        jtfProdutoListar = new javax.swing.JMenuItem();
+        jtfRelatorioEvento = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuSair = new javax.swing.JMenu();
+        jtfRelatorioProduto = new javax.swing.JMenuItem();
+        jtfSair = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -61,6 +69,10 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jMenuItem10.setText("jMenuItem10");
+
+        jMenuItem11.setText("jMenuItem11");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jdpPainelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
@@ -71,102 +83,170 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/bartender/view/BarTenderLogo-Preto.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
+        jtfBotaoEvento.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jtfBotaoEvento.setText("Evento");
+        jtfBotaoEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfBotaoEventoActionPerformed(evt);
+            }
+        });
+
+        jtfBotaoComanda.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jtfBotaoComanda.setText("Comanda");
+        jtfBotaoComanda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfBotaoComandaActionPerformed(evt);
+            }
+        });
+
+        jtfBotaoProduto.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jtfBotaoProduto.setText("Produto");
+        jtfBotaoProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfBotaoProdutoActionPerformed(evt);
+            }
+        });
+
+        jtfBotaoRelatorio.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jtfBotaoRelatorio.setText("Relatório");
+        jtfBotaoRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfBotaoRelatorioActionPerformed(evt);
+            }
+        });
+
+        jtfBotaoSair.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jtfBotaoSair.setText("Sair");
+        jtfBotaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfBotaoSairActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(240, 228, 228));
+        jLabel1.setText("Bartender v1.0 - All Rights Reserved");
+
         javax.swing.GroupLayout jdpPainelPrincipalLayout = new javax.swing.GroupLayout(jdpPainelPrincipal);
         jdpPainelPrincipal.setLayout(jdpPainelPrincipalLayout);
         jdpPainelPrincipalLayout.setHorizontalGroup(
             jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpPainelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(503, Short.MAX_VALUE)
+            .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(182, 182, 182))
+                    .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jtfBotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtfBotaoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfBotaoComanda, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfBotaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfBotaoRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)))
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jdpPainelPrincipalLayout.setVerticalGroup(
             jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpPainelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(387, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(19, 19, 19))
+            .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(507, Short.MAX_VALUE)
+                .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpPainelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap())))
+            .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jtfBotaoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jtfBotaoComanda, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jtfBotaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jtfBotaoRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(jtfBotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Novo");
+        jtfEvento.setText("Evento");
 
-        jMenuItem1.setText("Comanda");
+        jMenuItem1.setText("Novo Evento");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jtfEvento.add(jMenuItem1);
 
-        jMenuItem2.setText("Evento");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jtfEventoListar.setText("Listar Eventos");
+        jtfEvento.add(jtfEventoListar);
+
+        jMenuBar1.add(jtfEvento);
+
+        jtfComanda.setText("Comanda");
+
+        jtfComandaNovo.setText("Nova Comanda");
+        jtfComandaNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jtfComandaNovoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jtfComanda.add(jtfComandaNovo);
 
-        jMenuProduto.setText("Produto");
-        jMenuProduto.addActionListener(new java.awt.event.ActionListener() {
+        jtfConsumoNovo.setText("Novo Consumo");
+        jtfComanda.add(jtfConsumoNovo);
+
+        jtfComandaListar.setText("Listar Comandas");
+        jtfComanda.add(jtfComandaListar);
+
+        jMenuBar1.add(jtfComanda);
+
+        jtfProduto.setText("Produto");
+
+        jtfProdutoNovo.setText("Novo Produto");
+        jtfProduto.add(jtfProdutoNovo);
+
+        jtfProdutoListar.setText("Listar Produtos");
+        jtfProduto.add(jtfProdutoListar);
+
+        jMenuBar1.add(jtfProduto);
+
+        jtfRelatorioEvento.setText("Relatórios");
+
+        jMenuItem7.setText("Faturamento - Eventos");
+        jtfRelatorioEvento.add(jMenuItem7);
+
+        jtfRelatorioProduto.setText("Faturamento - Produtos");
+        jtfRelatorioProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuProdutoActionPerformed(evt);
+                jtfRelatorioProdutoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuProduto);
+        jtfRelatorioEvento.add(jtfRelatorioProduto);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jtfRelatorioEvento);
 
-        jMenu2.setText("Editar");
-
-        jMenuItem4.setText("Comanda");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+        jtfSair.setText("Sair");
+        jtfSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtfSairMouseClicked(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Evento");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jtfSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jtfSairActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("Produto");
-        jMenu2.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Consumo");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Relatório");
-
-        jMenuItem7.setText("Por comanda");
-        jMenu4.add(jMenuItem7);
-
-        jMenuItem8.setText("Por consumo");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem8);
-
-        jMenuItem9.setText("Por evento");
-        jMenu4.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenuSair.setText("Sair");
-        jMenuSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuSairActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenuSair);
+        jMenuBar1.add(jtfSair);
 
         setJMenuBar(jMenuBar1);
 
@@ -174,51 +254,73 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpPainelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdpPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jdpPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jdpPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
+    private void jtfSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jtfSairActionPerformed
 
-    }//GEN-LAST:event_jMenuSairActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void jtfRelatorioProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfRelatorioProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_jtfRelatorioProdutoActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jtfComandaNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfComandaNovoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuProdutoActionPerformed
-        ManutencaoProdutoUI novoProduto = new ManutencaoProdutoUI(null);
-        novoProduto.setVisible(true);
-        jdpPainelPrincipal.add(novoProduto);
-    }//GEN-LAST:event_jMenuProdutoActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ManutencaoEventoUI novoEvento = new ManutencaoEventoUI();
-        novoEvento.setVisible(true);
-        jdpPainelPrincipal.add(novoEvento);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jtfComandaNovoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ManutencaoComandaUI consultaClienteUI = new ManutencaoComandaUI();
-        consultaClienteUI.setVisible(true);
+        ManutencaoComandaUI manutencaoComanda = new ManutencaoComandaUI();
+        manutencaoComanda.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jtfBotaoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoEventoActionPerformed
+        // TODO add your handling code here:
+        ManutencaoEventoUI manutencaoEvento = new ManutencaoEventoUI();
+        manutencaoEvento.setVisible(true);
+        
+    }//GEN-LAST:event_jtfBotaoEventoActionPerformed
+
+    private void jtfBotaoComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoComandaActionPerformed
+        // TODO add your handling code here:
+        ManutencaoComandaUI manutencaoComanda = new ManutencaoComandaUI();
+        manutencaoComanda.setVisible(true);
+    }//GEN-LAST:event_jtfBotaoComandaActionPerformed
+
+    private void jtfBotaoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoProdutoActionPerformed
+        // TODO add your handling code here:
+        ManutencaoProdutoUI manutencaoProduto = new ManutencaoProdutoUI();
+        manutencaoProduto.setVisible(true);
+    }//GEN-LAST:event_jtfBotaoProdutoActionPerformed
+
+    private void jtfBotaoRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoRelatorioActionPerformed
+        // TODO add your handling code here:
+        RelatorioUI relatorioUI = new RelatorioUI();
+        relatorioUI.setVisible(true);
+    }//GEN-LAST:event_jtfBotaoRelatorioActionPerformed
+
+    private void jtfBotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+        
+    }//GEN-LAST:event_jtfBotaoSairActionPerformed
+
+    private void jtfSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtfSairMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jtfSairMouseClicked
 
     
     
@@ -254,24 +356,32 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JMenuItem jMenuProduto;
-    private javax.swing.JMenu jMenuSair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jdpPainelPrincipal;
+    private javax.swing.JButton jtfBotaoComanda;
+    private javax.swing.JButton jtfBotaoEvento;
+    private javax.swing.JButton jtfBotaoProduto;
+    private javax.swing.JButton jtfBotaoRelatorio;
+    private javax.swing.JButton jtfBotaoSair;
+    private javax.swing.JMenu jtfComanda;
+    private javax.swing.JMenuItem jtfComandaListar;
+    private javax.swing.JMenuItem jtfComandaNovo;
+    private javax.swing.JMenuItem jtfConsumoNovo;
+    private javax.swing.JMenu jtfEvento;
+    private javax.swing.JMenuItem jtfEventoListar;
+    private javax.swing.JMenu jtfProduto;
+    private javax.swing.JMenuItem jtfProdutoListar;
+    private javax.swing.JMenuItem jtfProdutoNovo;
+    private javax.swing.JMenu jtfRelatorioEvento;
+    private javax.swing.JMenuItem jtfRelatorioProduto;
+    private javax.swing.JMenu jtfSair;
     // End of variables declaration//GEN-END:variables
 
    
