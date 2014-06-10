@@ -33,7 +33,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
         jtfCampoLogin = new javax.swing.JTextField();
         jtfLoginEntrar = new javax.swing.JButton();
         jtfLoginSair = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jtfCampoSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +67,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
         jtfLoginSair.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jtfLoginSair.setText("Sair");
 
-        jPasswordField1.setText("jPasswordField1");
+        jtfCampoSenha.setText("jPasswordField1");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,7 +91,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
                                     .add(jLabel2)
                                     .add(jLabel3))
                                 .add(0, 0, Short.MAX_VALUE))
-                            .add(jPasswordField1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
+                            .add(jtfCampoSenha, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -105,7 +105,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
                 .add(38, 38, 38)
                 .add(jLabel3)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPasswordField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jtfCampoSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(jtfLoginEntrar)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -174,8 +174,8 @@ public class TelaLoginUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jtfCampoLogin;
+    private javax.swing.JPasswordField jtfCampoSenha;
     private javax.swing.JButton jtfLoginEntrar;
     private javax.swing.JButton jtfLoginSair;
     // End of variables declaration//GEN-END:variables
