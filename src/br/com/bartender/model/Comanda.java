@@ -14,15 +14,7 @@ public class Comanda {
     private String tipoPagamentoComanda;
     private ArrayList<Produto> consumoComanda;
 
-    public Comanda(Integer idComanda, String nomeClienteComanda, String telefoneClienteComanda, String sexoClienteComanda, ArrayList<Produto> consumoComanda, boolean situacaoComanda, String tipoPagamentoComanda) {
-        this.idComanda = idComanda;
-        this.nomeClienteComanda = nomeClienteComanda;
-        this.telefoneClienteComanda = telefoneClienteComanda;
-        this.sexoClienteComanda = sexoClienteComanda;        
-        this.consumoComanda = consumoComanda;
-        this.situacaoComanda = situacaoComanda;
-        this.tipoPagamentoComanda = tipoPagamentoComanda;
-    }
+    
 
     
     public Integer getIdComanda() {

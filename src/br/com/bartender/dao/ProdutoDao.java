@@ -38,7 +38,7 @@ public class ProdutoDao {
             String query = "INSERT INTO PRODUTO ( NOMEPRODUTO, VALORPRODUTO ) VALUES ( ?, ?)";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
             pst.setString(1, produto.getNomeProduto());
-            pst.setDouble(3, produto.getValorProduto());
+            pst.setDouble(2, produto.getValorProduto());
             pst.execute();
             con.closeConnection();
         } catch (SQLException ex) {
@@ -73,9 +73,9 @@ public class ProdutoDao {
              String query = "UPDATE PRODUTO SET NOMEPRODUTO=?, VALORPRODUTO=?, WHERE IDPRODUTO=?";
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
-            st.setString(1,produto.getNomeProduto());
-            st.setDouble(2,produto.getValorProduto());
-            st.setInt(3,produto.getIdProduto());
+            st.setString(1, produto.getNomeProduto());
+            st.setDouble(2, produto.getValorProduto());
+            st.setInt(3, produto.getIdProduto());
             st.executeQuery(query);
            
             
@@ -91,7 +91,7 @@ public class ProdutoDao {
              String query = "DELETE FROM PRODUTO WHERE IDPRODUTO=?";
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
-            st.setInt(1,produto.getIdProduto());
+            st.setInt(1, produto.getIdProduto());
             st.executeQuery(query);
              
            

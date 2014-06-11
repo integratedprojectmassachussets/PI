@@ -38,12 +38,14 @@ public class EventoDao {
     
     public void inserir(Evento evento){
         try {
-            String query = "INSERT INTO PRODUTO ( NOMEPRODUTO, VALORPRODUTO ) VALUES ( ?, ?)";
+            String query = "INSERT INTO EVENTO ( IDEVENTO, NOMEEVENTO, DATAEVENTO, HORARIOEVENTO, VALORMASC, VALORFEM  ) VALUES ( ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
-            pst.setString(1, evento.getNomeEvento());
+            pst.setInt(1, evento.getIdEvento());
+            pst.setString(2, evento.getNomeEvento());
             pst.setString(3, evento.getDataEvento());
-            pst.setString(3, evento.getHorarioEvento());
-           /* pst.setDouble(3, evento.);*/
+            pst.setString(4, evento.getHorarioEvento());
+            pst.setDouble(5, evento.getValorMasc());
+            pst.setDouble(6, evento.getValorFem());
             pst.execute();
             con.closeConnection();
         } catch (SQLException ex) {
@@ -55,15 +57,19 @@ public class EventoDao {
         this.listaEvento = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
             Statement st = con.getConnection().createStatement();
-            String query = "SELECT * FROM PRODUTO";
+            String query = "SELECT * FROM EVENTO";
             ResultSet rs = st.executeQuery(query);
             while( rs.next() ){
-                Evento p = new Evento();
-                p.setNomeEvento(rs.getString("NOMEPRODUTO"));
-              /*  p.setValorEvento(rs.getDouble("VALORPRODUTO"));*/
-                /*p.setIdEvento(rs.getInt("Id"));*/
+                Evento e = new Evento();
+                e.setIdEvento(rs.getInt("IDEVENTO"));
+                e.setNomeEvento(rs.getString("NOMEEVENTO"));
+                e.setDataEvento(rs.getString("DATAEVENTO"));
+                e.setHorarioEvento(rs.getString("HORARIOEVENTO"));
+                e.setValorMasc(rs.getDouble("VALORMASC"));
+                e.setValorFem(rs.getDouble("VALORFEM"));
                 
-                this.listaEvento.add( p );
+                
+                this.listaEvento.add( e );
             }
             con.closeConnection();
         } catch (SQLException ex) {
@@ -75,12 +81,15 @@ public class EventoDao {
     
     public void alterar(Evento evento){
          try {
-             String query = "UPDATE PRODUTO SET NOMEPRODUTO=?, VALORPRODUTO=?, WHERE ID=?";
+             String query = "UPDATE EVENTO SET NOMEEVENTO=?, DATAEVENTO=?, HORARIOEVENTO=?, VALORMASC=?, VALORFEM=? WHERE IDEVENTO=?";
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
-            st.setString(1,evento.getNomeEvento());
-           /* st.setDouble(2,evento.getValorEvento());*/
-            /*st.setInt(3,evento.getIdEvento());*/
+            st.setString(1, evento.getNomeEvento());
+            st.setString(2, evento.getDataEvento());
+            st.setString(3, evento.getHorarioEvento());
+            st.setDouble(4, evento.getValorMasc());
+            st.setDouble(5, evento.getValorFem());
+            st.setInt(6, evento.getIdEvento());
             st.executeQuery(query);
            
             
@@ -93,7 +102,7 @@ public class EventoDao {
     
     public void remover(Evento evento) throws Exception{
        try {
-             String query = "DELETE FROM PRODUTO WHERE ID=?";
+             String query = "DELETE FROM EVENTO WHERE IDEVENTO=?";
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setInt(1,evento.getIdEvento());
