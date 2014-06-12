@@ -3,7 +3,7 @@ package br.com.bartender.dao;
 
 import java.util.ArrayList;
 import br.com.bartender.model.Produto;
-import br.com.bartender.util.Connection;
+import br.com.bartender.util.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +18,7 @@ public class ProdutoDao {
 
     private ArrayList<Produto> listaProduto;
     private static ProdutoDao instanciaRep;
-    private Connection con;
+    private ConnectionUtil con;
     
     /*SINGLETON*/
     public static ProdutoDao obterInstancia(){
@@ -30,7 +30,7 @@ public class ProdutoDao {
     
     public ProdutoDao(){
         this.listaProduto = new ArrayList<Produto>();
-        con = new Connection();
+        con = new ConnectionUtil();
     }
     
     public void inserir(Produto produto){

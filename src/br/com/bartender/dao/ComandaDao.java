@@ -3,7 +3,7 @@ package br.com.bartender.dao;
 
 import java.util.ArrayList;
 import br.com.bartender.model.Comanda;
-import br.com.bartender.util.Connection;
+import br.com.bartender.util.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ public class ComandaDao {
     
     private ArrayList<Comanda> listaComanda;
     private static ComandaDao instanciaRep;
-    private Connection con;
+    private ConnectionUtil con;
         
     
     
@@ -33,7 +33,7 @@ public class ComandaDao {
     
     public ComandaDao(){
         this.listaComanda = new ArrayList<Comanda>();
-        con = new Connection();
+        con = new ConnectionUtil();
     }
     
     public void inserir(Comanda comanda){
