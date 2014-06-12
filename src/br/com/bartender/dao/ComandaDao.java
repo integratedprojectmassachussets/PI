@@ -3,7 +3,7 @@ package br.com.bartender.dao;
 
 import java.util.ArrayList;
 import br.com.bartender.model.Comanda;
-import br.com.bartender.util.Connection;
+import br.com.bartender.util.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ public class ComandaDao {
     
     private ArrayList<Comanda> listaComanda;
     private static ComandaDao instanciaRep;
-    private Connection con;
+    private ConnectionUtil con;
         
     
     
@@ -33,19 +33,20 @@ public class ComandaDao {
     
     public ComandaDao(){
         this.listaComanda = new ArrayList<Comanda>();
-        con = new Connection();
+        con = new ConnectionUtil();
     }
     
     public void inserir(Comanda comanda){
         /*Verificar a inser;áo do valorentradacomanda*/
-        /* Verificar a situacao comanda*/
         try {
-            String query = "INSERT INTO COMANDA ( IDCOMANDA, NOMECLIENTECOMANDA, SEXOCLIENTECOMANDA, TELEFONECLIENTECOMANDA,) VALUES ( ?, ?, ?, ?)";
+            
+            String query = "INSERT INTO COMANDA ( IDCOMANDA, NOMECLIENTECOMANDA, SEXOCLIENTECOMANDA, TELEFONECLIENTECOMANDA, SITUACAOCOMANDA) VALUES ( ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
             pst.setInt(1, comanda.getIdComanda());
             pst.setString(2, comanda.getNomeClienteComanda());
             pst.setString(3, comanda.getSexoClienteComanda());
             pst.setString(4, comanda.getTelefoneClienteComanda());
+            pst.setString(5, "A");
             pst.execute();
             con.closeConnection();
         } catch (SQLException ex) {

@@ -10,9 +10,18 @@ public class Comanda {
     private String nomeClienteComanda;
     private String sexoClienteComanda;
     private String telefoneClienteComanda;       
-    private boolean situacaoComanda;
+    private String situacaoComanda;
     private String tipoPagamentoComanda;
-    private ArrayList<Produto> consumoComanda;
+    private ArrayList<Consumo> consumoComanda;
+    private Evento eventoVigente;
+
+    public Evento getEventoVigente() {
+        return eventoVigente;
+    }
+
+    public void setEventoVigente(Evento eventoVigente) {
+        this.eventoVigente = eventoVigente;
+    }
 
     
 
@@ -49,19 +58,21 @@ public class Comanda {
         this.sexoClienteComanda = sexoClienteComanda;
     }
 
-    public ArrayList<Produto> getConsumoComanda() {
+    public ArrayList<Consumo> getConsumoComanda() {
         return consumoComanda;
     }
 
-    public void setConsumoComanda(ArrayList<Produto> consumoComanda) {
+    public void setConsumoComanda(ArrayList<Consumo> consumoComanda) {
         this.consumoComanda = consumoComanda;
     }
 
-    public boolean isSituacaoComanda() {
+    
+
+    public String getSituacaoComanda() {
         return situacaoComanda;
     }
 
-    public void setSituacaoComanda(boolean situacaoComanda) {
+    public void setSituacaoComanda(String situacaoComanda) {
         this.situacaoComanda = situacaoComanda;
     }
 

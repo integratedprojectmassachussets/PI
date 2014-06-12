@@ -1,7 +1,5 @@
 package br.com.bartender.model;
-import br.com.bartender.model.Comanda;
-import br.com.bartender.model.Produto;
-import javax.swing.JOptionPane; 
+import java.util.ArrayList; 
 
 /**
  *
@@ -10,19 +8,50 @@ import javax.swing.JOptionPane;
 
 public class Consumo {
     
-    public void consumo(Produto produto, Comanda comanda){
-        
-        int quantidadeConsumo;
-        produto.getTipoProduto();
-        produto.getNomeProduto();
-        produto.getValorProduto();
-        
-        quantidadeConsumo = Integer.parseInt(JOptionPane.showInputDialog("Quantidade: "));
-        
-        
-        
-        
-        
-        
+    private Integer quantidadeProduto;
+    private Comanda comandaRelacionada;
+    private Produto produtoInserido;
+
+    
+    
+    
+    
+    public Integer getQuantidadeProduto() {
+        return quantidadeProduto;
     }
+
+    public void setQuantidadeProduto(Integer quantidadeProduto) {
+        this.quantidadeProduto = quantidadeProduto;
+    }
+
+    public Comanda getComandaRelacionada() {
+        return comandaRelacionada;
+    }
+
+    public void setComandaRelacionada(Comanda comandaRelacionada) {
+        this.comandaRelacionada = comandaRelacionada;
+    }
+
+    public Produto getProdutoInserido() {
+        return produtoInserido;
+    }
+
+    public void setProdutoInserido(Produto produtoInserido) {
+        this.produtoInserido = produtoInserido;
+    }
+
+    
+
+ 
+    
+    
+        
+       
+        
+        
+        
+        
+        
+        
+    
 }

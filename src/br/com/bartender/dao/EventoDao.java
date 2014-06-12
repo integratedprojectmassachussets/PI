@@ -6,7 +6,7 @@ package br.com.bartender.dao;
 
 import java.util.ArrayList;
 import br.com.bartender.model.Evento;
-import br.com.bartender.util.Connection;
+import br.com.bartender.util.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +21,7 @@ public class EventoDao {
 
     private ArrayList<Evento> listaEvento;
     private static EventoDao instanciaRep;
-    private Connection con;
+    private ConnectionUtil con;
     
     /*SINGLETON*/
     public static EventoDao obterInstancia(){
@@ -33,7 +33,7 @@ public class EventoDao {
     
     public EventoDao(){
         this.listaEvento = new ArrayList<Evento>();
-        con = new Connection();
+        con = new ConnectionUtil();
     }
     
     public void inserir(Evento evento){
