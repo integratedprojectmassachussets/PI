@@ -114,6 +114,10 @@ public class EventoDao {
             ex.printStackTrace();
         }
     }
+
+    public static EventoDao getInstanciaRep() {
+        return instanciaRep;
+    }
     
     public Integer verificaExistencia(Evento evento){
         for ( int i=0; i < this.listaEvento.size(); i++){
