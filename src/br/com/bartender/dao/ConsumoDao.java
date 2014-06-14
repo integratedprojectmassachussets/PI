@@ -34,11 +34,12 @@ public class ConsumoDao {
     
     public void inserir(Consumo consumo){
         try {
-            String query = "INSERT INTO CONSUMO ( QUANTIDADEPRODUTO, COMANDAID, PRODUTOID) VALUES ( ?, ?, ?)";
+            String query = "INSERT INTO CONSUMO ( IDCONSUMO, QUANTIDADEPRODUTO, COMANDAID, PRODUTOID) VALUES ( ?, ?, ?, ?)";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
-            pst.setInt(1, consumo.getQuantidadeProduto());
-            pst.setInt(2, consumo.getComandaRelacionada().getIdComanda());
-            pst.setInt(3, consumo.getProdutoInserido().getIdProduto());
+            pst.setInt(1, consumo.getIdConsumo());
+            pst.setInt(2, consumo.getQuantidadeProduto());
+            pst.setInt(3, consumo.getComandaRelacionada().getIdComanda());
+            pst.setInt(4, consumo.getProdutoInserido().getIdProduto());
             pst.execute();
             con.closeConnection();
         } catch (SQLException ex) {
@@ -70,6 +71,32 @@ public class ConsumoDao {
         }
         
         return this.listaConsumo;
+    }
+    
+    
+    
+    public void remover(Consumo consumo) throws Exception{
+       try {
+             String query = "DELETE FROM CONSUMO WHERE IDCONSUMO=?";
+             PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setInt(1, consumo.getIdConsumo());
+            st.executeQuery(query);
+             
+           
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public Integer verificaExistencia(Consumo consumo){
+        for ( int i=0; i < this.listaConsumo.size(); i++){
+            if ( this.listaConsumo.get(i).equals(consumo) ) {
+                return i;
+            }
+        }
+        return null;
     }
     
     

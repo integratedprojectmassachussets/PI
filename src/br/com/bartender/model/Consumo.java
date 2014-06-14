@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public class Consumo {
     
+    
+    private Integer idConsumo;
+
     private Integer quantidadeProduto;
     private Comanda comandaRelacionada;
     private Produto produtoInserido;
@@ -15,6 +18,14 @@ public class Consumo {
     
     
     
+    
+    public Integer getIdConsumo() {
+        return idConsumo;
+    }
+
+    public void setIdConsumo(Integer idConsumo) {
+        this.idConsumo = idConsumo;
+    }
     
     public Integer getQuantidadeProduto() {
         return quantidadeProduto;

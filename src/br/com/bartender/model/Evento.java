@@ -1,5 +1,7 @@
 package br.com.bartender.model;
 
+import java.sql.Date;
+
 
 /**
  *
@@ -9,7 +11,7 @@ public class Evento {
     
     private Integer idEvento;
     private String nomeEvento;
-    private String dataEvento;  
+    private Date dataEvento;  
     private String horarioEvento;
     private Double valorMasc;
     private Double valorFem;
@@ -34,11 +36,11 @@ public class Evento {
         this.nomeEvento = nomeEvento;
     }
 
-    public String getDataEvento() {
+    public Date getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(String dataEvento) {
+    public void setDataEvento(Date dataEvento) {
         this.dataEvento = dataEvento;
     }
 
