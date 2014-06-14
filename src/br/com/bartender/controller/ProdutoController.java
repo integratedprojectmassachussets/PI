@@ -1,5 +1,6 @@
 package br.com.bartender.controller;
 
+import br.com.bartender.dao.ProdutoDao;
 import br.com.bartender.model.Produto;
 import java.util.ArrayList;
 
@@ -25,20 +26,17 @@ public class ProdutoController {
         }
         if (produto.getNomeProduto().isEmpty() ){
             throw new Exception("Favor inserir o nome do produto.");
-        }
-        if ( produto.getTipoProduto().isEmpty() ){
-            throw new Exception("Favor inserir tipo do produto.");
-        }
+        }        
         if ( produto.getValorProduto().equals("") ){
             throw new Exception("Favor inserir o valor unitário do produto.");
         }
                
         
-        ProdutoController.obterInstancia().Cadastrar(produto);
+        ProdutoDao.obterInstancia().inserir(produto);
     }
     
     public ArrayList<Produto> listarTodos(){
-        return ProdutoController.obterInstancia().listarTodos();
+        return ProdutoDao.obterInstancia().listarTodos();
     }
     
     public void Editar(Produto produto) throws Exception{
@@ -50,15 +48,12 @@ public class ProdutoController {
         }
         if (produto.getNomeProduto().isEmpty() ){
             throw new Exception("Favor inserir o nome do produto.");
-        }
-        if ( produto.getTipoProduto().isEmpty() ){
-            throw new Exception("Favor inserir tipo do produto.");
-        }
+        }        
         if ( produto.getValorProduto().equals("") ){
             throw new Exception("Favor inserir o valor unitário do produto.");
         }
         
-        ProdutoController.obterInstancia().Editar(produto);
+        ProdutoDao.obterInstancia().alterar(produto);
     
     
     }
@@ -67,6 +62,20 @@ public class ProdutoController {
         if ( produto == null){
             throw new Exception("Selecione um produto");
         }
-        ProdutoController.obterInstancia().Excluir(produto);
+        ProdutoDao.obterInstancia().remover(produto);
+    }
+    
+    public void BuscarProduto (Produto produto) throws Exception{
+        if( produto.getIdProduto().equals("")){
+            throw new Exception("Favor inserir o id do produto.");
+        }
+        if(produto.getNomeProduto().isEmpty()){
+            throw new Exception("Favor inserir o nome do produto.");
+        }
+        
+        
+        
+        ProdutoDao.obterInstancia().verificaExistencia(produto);
+        
     }
 }

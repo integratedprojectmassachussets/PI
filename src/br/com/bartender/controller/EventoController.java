@@ -1,5 +1,6 @@
 package br.com.bartender.controller;
 
+import br.com.bartender.dao.EventoDao;
 import br.com.bartender.model.Evento;
 import java.util.ArrayList;
 
@@ -39,11 +40,11 @@ public class EventoController {
             throw new Exception("Favor inserir o valor do evento.");
         }
         
-        EventoController.obterInstancia().Cadastrar(evento);
+        EventoDao.obterInstancia().inserir(evento);
     }
     
     public ArrayList<Evento> listarTodos(){
-        return EventoController.obterInstancia().listarTodos();
+        return EventoDao.obterInstancia().listarTodos();
     }
     
     public void Editar(Evento evento) throws Exception{
@@ -66,7 +67,7 @@ public class EventoController {
             throw new Exception("Favor inserir o valor do ingresso feminino.");
         }
         
-        EventoController.obterInstancia().Editar(evento);
+        EventoDao.obterInstancia().alterar(evento);
     
     
     }
@@ -75,7 +76,22 @@ public class EventoController {
         if ( evento == null){
             throw new Exception("Selecione um evento");
         }
-        EventoController.obterInstancia().Excluir(evento);
+        EventoDao.obterInstancia().remover(evento);
     }
+    
+    public void BuscarEvento(Evento evento) throws Exception{
+        if (evento.getIdEvento().equals("")){
+            throw new Exception("Favor inserir um id.");
+        }
+        if (evento.getNomeEvento().isEmpty()){
+            throw new Exception("Favor inserir um nome.");
+        }
+        
+        
+        EventoDao.obterInstancia().verificaExistencia(evento);
+            
+    }
+    
+    
     
 }
