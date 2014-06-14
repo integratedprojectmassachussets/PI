@@ -42,7 +42,7 @@ public class EventoDao {
             PreparedStatement pst = con.getConnection().prepareStatement(query);
             pst.setInt(1, evento.getIdEvento());
             pst.setString(2, evento.getNomeEvento());
-            pst.setString(3, evento.getDataEvento());
+            pst.setDate(3, evento.getDataEvento());
             pst.setString(4, evento.getHorarioEvento());
             pst.setDouble(5, evento.getValorMasc());
             pst.setDouble(6, evento.getValorFem());
@@ -63,7 +63,7 @@ public class EventoDao {
                 Evento e = new Evento();
                 e.setIdEvento(rs.getInt("IDEVENTO"));
                 e.setNomeEvento(rs.getString("NOMEEVENTO"));
-                e.setDataEvento(rs.getString("DATAEVENTO"));
+                e.setDataEvento(rs.getDate("DATAEVENTO"));
                 e.setHorarioEvento(rs.getString("HORARIOEVENTO"));
                 e.setValorMasc(rs.getDouble("VALORMASC"));
                 e.setValorFem(rs.getDouble("VALORFEM"));
@@ -85,7 +85,7 @@ public class EventoDao {
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setString(1, evento.getNomeEvento());
-            st.setString(2, evento.getDataEvento());
+            st.setDate(2, evento.getDataEvento());
             st.setString(3, evento.getHorarioEvento());
             st.setDouble(4, evento.getValorMasc());
             st.setDouble(5, evento.getValorFem());

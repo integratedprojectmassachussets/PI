@@ -56,7 +56,7 @@ public class ProdutoDao {
                 Produto p = new Produto();
                 p.setNomeProduto(rs.getString("NOMEPRODUTO"));
                 p.setValorProduto(rs.getDouble("VALORPRODUTO"));
-                p.setIdProduto(rs.getInt("IdPRODUTO"));
+                p.setIdProduto(rs.getInt("IDPRODUTO"));
                 
                 this.listaProduto.add( p );
             }

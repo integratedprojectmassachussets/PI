@@ -7,8 +7,7 @@ package br.com.bartender.model;
 public class Produto {
     
     private Integer idProduto;
-    private String nomeProduto;
-    private String tipoProduto;    
+    private String nomeProduto;    
     private Double valorProduto;
 
 
@@ -21,13 +20,6 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
-    public String getTipoProduto() {
-        return tipoProduto;
-    }
-
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
 
     public String getNomeProduto() {
         return nomeProduto;
