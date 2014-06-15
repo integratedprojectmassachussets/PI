@@ -407,7 +407,10 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
         evento.setHorarioEvento(jtfEventoEditarHorario.getText());
        
         try{
-         dataEvento = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(jtfEventoEditarData.getText()); 
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+            dataEvento = (Date) sdf.parse(jtfEventoEditarData.getText());
+         /*dataEvento = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(jtfEventoEditarData.getText()); 
+          */
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Data inválida");
         }

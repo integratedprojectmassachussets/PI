@@ -14,10 +14,21 @@ public class Consumo {
     private Integer quantidadeProduto;
     private Comanda comandaRelacionada;
     private Produto produtoInserido;
+    private Double valorTotal;
 
     
     
     
+    
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal() {
+        
+        
+        this.valorTotal = this.quantidadeProduto * this.produtoInserido.getValorProduto();
+    }
     
     public Integer getIdConsumo() {
         return idConsumo;

@@ -1,10 +1,13 @@
 package br.com.bartender.view;
 
+import br.com.bartender.controller.ConsumoController;
 import br.com.bartender.model.Comanda;
 import br.com.bartender.model.Consumo;
 import br.com.bartender.model.Produto;
+import java.util.ArrayList;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,6 +16,7 @@ import javax.swing.JOptionPane;
 public class TelaPrincipalUI extends javax.swing.JFrame {
     
     private static TelaPrincipalUI instanciaRep;
+    private ArrayList<Consumo> listaConsumoTemp;
     
     /*SINGLETON*/
     public static TelaPrincipalUI obterInstancia(){
@@ -29,6 +33,21 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     public TelaPrincipalUI() {
         initComponents();
     }
+    
+    public void atualizarTabelaConsumo(){
+        DefaultTableModel tabelaConsumoTemp = new DefaultTableModel();
+        tabelaConsumoTemp.setColumnIdentifiers(new String[] {"Codigo de barras","Descrição","Preço"});
+        
+        for ( int i=0; i < this.listaConsumoTemp.size(); i++){
+            tabelaConsumoTemp.addRow(new Object[] { this.listaConsumoTemp.get(i).getProdutoInserido().getNomeProduto(), 
+                this.listaConsumoTemp.get(i).getProdutoInserido().getValorProduto(), this.listaConsumoTemp.get(i).getQuantidadeProduto(), 
+            this.listaConsumoTemp.get(i).getValorTotal() });
+        }
+        jtListaConsumoTemp.setModel(tabelaConsumoTemp);        
+    }
+    
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -471,15 +490,28 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         comandaRelacionada.setIdComanda(Integer.parseInt(jtfIdComanda.getText()));
         produtoInserido.setIdProduto(Integer.parseInt(jtfIdProduto.getText()));
         
-        /* Retirar para testar
+        /*
+         * Trecho pra testar sem o banco
+         */
         produtoInserido.setNomeProduto("Coca-Cola");
         produtoInserido.setValorProduto(5D);
-        */
+        /*
+         * Fim do trecho
+         */
         
         consumo.setComandaRelacionada(comandaRelacionada);
         consumo.setProdutoInserido(produtoInserido);
         consumo.setQuantidadeProduto(Integer.parseInt(jtfQuantidadeConsumo.getText()));
         
+        this.listaConsumoTemp.add(consumo);
+        atualizarTabelaConsumo();
+        
+        
+        
+        
+        
+        
+        /*
         jtListaConsumoTemp.setValueAt(consumo.getProdutoInserido().getNomeProduto(), 0, 0);
         jtListaConsumoTemp.setValueAt(consumo.getProdutoInserido().getValorProduto(), 0, 1);
         jtListaConsumoTemp.setValueAt(consumo.getQuantidadeProduto(),0, 2);
@@ -487,7 +519,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         valorTotal = consumo.getQuantidadeProduto() * consumo.getProdutoInserido().getValorProduto();
         
         jtListaConsumoTemp.setValueAt(valorTotal, 0, 3);
-        
+        */
         
     }//GEN-LAST:event_jbAdicionarConsumoActionPerformed
 
