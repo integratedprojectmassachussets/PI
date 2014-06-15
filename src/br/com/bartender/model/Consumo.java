@@ -20,6 +20,7 @@ public class Consumo {
     
     
     
+
     public Double getValorTotal() {
         return valorTotal;
     }

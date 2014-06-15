@@ -1,32 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.bartender.view;
-import br.com.bartender.dao.EventoDao;
-import br.com.bartender.model.Evento;
-import java.text.SimpleDateFormat;
-import java.sql.Date;
-import javax.swing.JOptionPane;
 
+import br.com.bartender.controller.EventoController;
+import br.com.bartender.model.Evento;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author eduardo
  */
-public class ManutencaoEventoUI extends javax.swing.JFrame {
+public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ManutencaoProdutoUI
+     * Creates new form ManutencaoEventoUI
      */
     public ManutencaoEventoUI() {
         initComponents();
-    }
-
-    ManutencaoEventoUI(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -72,8 +66,6 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 500));
 
         jTable1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -98,15 +90,8 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
-        jTable1.getColumnModel().getColumn(1).setPreferredWidth(70);
-        jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
-        jTable1.getColumnModel().getColumn(3).setPreferredWidth(30);
-        jTable1.getColumnModel().getColumn(4).setPreferredWidth(70);
-        jTable1.getColumnModel().getColumn(5).setPreferredWidth(70);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel1.setLabelFor(this);
         jLabel1.setText("Evento");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar/Editar Evento", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -186,7 +171,7 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jtfEventoEditarData)
                     .addComponent(jtfEventoEditarHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel20)
@@ -329,10 +314,6 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(286, 286, 286)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -340,6 +321,10 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(274, 274, 274)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,7 +344,7 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,91 +356,64 @@ public class ManutencaoEventoUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
-
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jtfEventoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfEventoExcluirActionPerformed
-
-    private void jtfEventoLimparEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoLimparEdicaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfEventoLimparEdicaoActionPerformed
-
     private void jtfEventoSalvarEdicaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtfEventoSalvarEdicaoMouseClicked
         // TODO add your handling code here:
         /*
-         Eduardo, tirar aquele campo de ID da parte de baixo, é desnecessário
-         */
+        Eduardo, tirar aquele campo de ID da parte de baixo, é desnecessário
+        */
         Date dataEvento = null;
-        
+
         Evento evento = new Evento();
-       /* if(jtfEventoEditarID.getText() != null ){
+        /* if(jtfEventoEditarID.getText() != null ){
             evento.setIdEvento(Integer.parseInt(jtfEventoEditarID.getText()));
         }
         */
         evento.setNomeEvento(jtfEventoEditarNome.getText());
         evento.setHorarioEvento(jtfEventoEditarHorario.getText());
-       
+
         try{
+
             SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
             dataEvento = (Date) sdf.parse(jtfEventoEditarData.getText());
          /*dataEvento = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(jtfEventoEditarData.getText()); 
           */
+
+            
+
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Data inválida");
         }
         evento.setDataEvento(dataEvento);
         evento.setValorMasc(Double.parseDouble(jtfEventoEditarValorMasc.getText()));
-        evento.setValorFem(Double.parseDouble(jtfEventoEditarValorFem.getText())); 
-        EventoDao.getInstanciaRep().inserir(evento);
-        
+        evento.setValorFem(Double.parseDouble(jtfEventoEditarValorFem.getText()));
+        try {
+            EventoController.obterInstancia().Cadastrar(evento);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+        }
+
         JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!", "Confirmação de Cadastro", WIDTH);
     }//GEN-LAST:event_jtfEventoSalvarEdicaoMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManutencaoEventoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManutencaoEventoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManutencaoEventoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManutencaoEventoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jtfEventoLimparEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoLimparEdicaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfEventoLimparEdicaoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ManutencaoEventoUI().setVisible(true);
-            }
-        });
-    }
+    private void jtfEventoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfEventoExcluirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
+    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -4,6 +4,9 @@
  */
 package br.com.bartender.view;
 
+import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author felipe_beck
@@ -13,6 +16,20 @@ public class TelaLoginUI extends javax.swing.JFrame {
     /**
      * Creates new form TelaLoginUI
      */
+    
+        private static TelaLoginUI instanciaRep;
+    
+    /*SINGLETON*/
+    public static TelaLoginUI obterInstancia(){
+        if ( instanciaRep == null ){
+            instanciaRep = new TelaLoginUI();
+        }
+        return instanciaRep;
+    }
+
+    public JDesktopPane getPainelPrincipal(){
+        return obterInstancia().getPainelPrincipal();    
+    }
     public TelaLoginUI() {
         initComponents();
     }
@@ -33,7 +50,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
         jtfCampoLogin = new javax.swing.JTextField();
         jtfLoginEntrar = new javax.swing.JButton();
         jtfLoginSair = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jtfCampoSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +83,11 @@ public class TelaLoginUI extends javax.swing.JFrame {
         jtfLoginSair.setBackground(new java.awt.Color(255, 255, 255));
         jtfLoginSair.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jtfLoginSair.setText("Sair");
+        jtfLoginSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfLoginSairActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,7 +111,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
                                     .add(jLabel2)
                                     .add(jLabel3))
                                 .add(0, 0, Short.MAX_VALUE))
-                            .add(jPasswordField1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
+                            .add(jtfCampoSenha, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,7 +125,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
                 .add(38, 38, 38)
                 .add(jLabel3)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPasswordField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jtfCampoSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(jtfLoginEntrar)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -131,7 +153,21 @@ public class TelaLoginUI extends javax.swing.JFrame {
 
     private void jtfLoginEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfLoginEntrarActionPerformed
         // TODO add your handling code here:
+        String login = jtfCampoLogin.getText();
+        String senha = jtfCampoSenha.getText();
+        if(login.equals("bartender") && senha.equals("pi12345")){
+            TelaPrincipalUI telaPrincipal = new TelaPrincipalUI();
+            telaPrincipal.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Login ou senha incorretos.");
+        }
+        
     }//GEN-LAST:event_jtfLoginEntrarActionPerformed
+
+    private void jtfLoginSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfLoginSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jtfLoginSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,7 +199,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLoginUI().setVisible(true);
+                obterInstancia().setVisible(true);
             }
         });
     }
@@ -172,8 +208,8 @@ public class TelaLoginUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jtfCampoLogin;
+    private javax.swing.JPasswordField jtfCampoSenha;
     private javax.swing.JButton jtfLoginEntrar;
     private javax.swing.JButton jtfLoginSair;
     // End of variables declaration//GEN-END:variables
