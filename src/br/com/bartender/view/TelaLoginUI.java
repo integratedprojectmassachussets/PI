@@ -38,7 +38,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/bartender/view/BarTenderLogo-300x168.png"))); // NOI18N
 
@@ -66,8 +66,6 @@ public class TelaLoginUI extends javax.swing.JFrame {
         jtfLoginSair.setBackground(new java.awt.Color(255, 255, 255));
         jtfLoginSair.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jtfLoginSair.setText("Sair");
-
-        jPasswordField1.setText("jPasswordField1");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
