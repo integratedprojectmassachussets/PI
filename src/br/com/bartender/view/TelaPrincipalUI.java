@@ -1,5 +1,8 @@
 package br.com.bartender.view;
 
+import br.com.bartender.model.Comanda;
+import br.com.bartender.model.Consumo;
+import br.com.bartender.model.Produto;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
@@ -44,17 +47,17 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jtfIdComanda = new javax.swing.JTextField();
+        jbBuscarComanda = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtListaConsumoTemp = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbAdicionarConsumo = new javax.swing.JButton();
+        jtfIdProduto = new javax.swing.JTextField();
+        jbCadastrarConsumo = new javax.swing.JButton();
+        jbLimparConsumo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jtfQuantidadeConsumo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,7 +78,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jdpPainelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
-        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(0));
         jdpPainelPrincipal.setForeground(new java.awt.Color(255, 0, 153));
         jdpPainelPrincipal.setPreferredSize(new java.awt.Dimension(1024, 600));
 
@@ -145,9 +148,20 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ID Comanda:");
 
-        jButton1.setText("Buscar");
+        jtfIdComanda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfIdComandaActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jbBuscarComanda.setText("Buscar");
+        jbBuscarComanda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarComandaActionPerformed(evt);
+            }
+        });
+
+        jtListaConsumoTemp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -155,27 +169,37 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Produto", "Valor Unitário", "Quantidade", "Valor Total"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(51, 51, 255));
-        jScrollPane1.setViewportView(jTable1);
+        jtListaConsumoTemp.setGridColor(new java.awt.Color(0, 0, 0));
+        jtListaConsumoTemp.setSelectionBackground(new java.awt.Color(51, 51, 255));
+        jtListaConsumoTemp.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jtListaConsumoTempComponentAdded(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtListaConsumoTemp);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ID Produto:");
 
-        jButton2.setText("Adicionar");
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setText("Inserir");
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton4.setText("Limpar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbAdicionarConsumo.setText("Adicionar");
+        jbAdicionarConsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbAdicionarConsumoActionPerformed(evt);
+            }
+        });
+
+        jbCadastrarConsumo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbCadastrarConsumo.setText("Inserir");
+
+        jbLimparConsumo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbLimparConsumo.setText("Limpar");
+        jbLimparConsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimparConsumoActionPerformed(evt);
             }
         });
 
@@ -198,27 +222,27 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfIdComanda, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(jbBuscarComanda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfQuantidadeConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(jbAdicionarConsumo)))
                 .addGap(35, 35, 35))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(156, 156, 156)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbCadastrarConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbLimparConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(jLabel7)))
@@ -232,19 +256,19 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(jtfIdComanda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbBuscarComanda)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbAdicionarConsumo)
+                    .addComponent(jtfIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfQuantidadeConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbCadastrarConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbLimparConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -346,14 +370,62 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jtfBotaoSairActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jbLimparConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparConsumoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbLimparConsumoActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null,"Se fosse na quarta fase, este trabalho não passava.");
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jtfIdComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdComandaActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jtfIdComandaActionPerformed
+
+    private void jbBuscarComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarComandaActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jbBuscarComandaActionPerformed
+
+    private void jtListaConsumoTempComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jtListaConsumoTempComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtListaConsumoTempComponentAdded
+
+    private void jbAdicionarConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAdicionarConsumoActionPerformed
+        // TODO add your handling code here:
+        
+        Consumo consumo = new Consumo();
+        Comanda comandaRelacionada = new Comanda();
+        Produto produtoInserido = new Produto();
+        double valorTotal = 0;
+        
+        comandaRelacionada.setIdComanda(Integer.parseInt(jtfIdComanda.getText()));
+        produtoInserido.setIdProduto(Integer.parseInt(jtfIdProduto.getText()));
+        
+        /* Retirar para testar
+        produtoInserido.setNomeProduto("Coca-Cola");
+        produtoInserido.setValorProduto(5D);
+        */
+        
+        consumo.setComandaRelacionada(comandaRelacionada);
+        consumo.setProdutoInserido(produtoInserido);
+        consumo.setQuantidadeProduto(Integer.parseInt(jtfQuantidadeConsumo.getText()));
+        
+        jtListaConsumoTemp.setValueAt(consumo.getProdutoInserido().getNomeProduto(), 0, 0);
+        jtListaConsumoTemp.setValueAt(consumo.getProdutoInserido().getValorProduto(), 0, 1);
+        jtListaConsumoTemp.setValueAt(consumo.getQuantidadeProduto(),0, 2);
+        
+        valorTotal = consumo.getQuantidadeProduto() * consumo.getProdutoInserido().getValorProduto();
+        
+        jtListaConsumoTemp.setValueAt(valorTotal, 0, 3);
+        
+        
+    }//GEN-LAST:event_jbAdicionarConsumoActionPerformed
 
     
     
@@ -389,10 +461,6 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -404,16 +472,20 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton jbAdicionarConsumo;
+    private javax.swing.JButton jbBuscarComanda;
+    private javax.swing.JButton jbCadastrarConsumo;
+    private javax.swing.JButton jbLimparConsumo;
     private javax.swing.JPanel jdpPainelPrincipal;
+    private javax.swing.JTable jtListaConsumoTemp;
     private javax.swing.JButton jtfBotaoComanda;
     private javax.swing.JButton jtfBotaoEvento;
     private javax.swing.JButton jtfBotaoProduto;
     private javax.swing.JButton jtfBotaoRelatorio;
     private javax.swing.JButton jtfBotaoSair;
+    private javax.swing.JTextField jtfIdComanda;
+    private javax.swing.JTextField jtfIdProduto;
+    private javax.swing.JTextField jtfQuantidadeConsumo;
     // End of variables declaration//GEN-END:variables
 
    

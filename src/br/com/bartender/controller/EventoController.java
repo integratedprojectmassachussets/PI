@@ -27,7 +27,7 @@ public class EventoController {
         if (evento.getNomeEvento().isEmpty() ){
             throw new Exception("Favor inserir o nome do evento.");
         }
-        if ( evento.getDataEvento().isEmpty() ){
+        if ( evento.getDataEvento().equals("") ){
             throw new Exception("Favor inserir a data do evento.");
         }
         if ( evento.getHorarioEvento().isEmpty() ){
@@ -54,7 +54,7 @@ public class EventoController {
         if ( evento.getIdEvento().equals("") ){
             throw new Exception("Favor inserir o id do evento.");        
         }
-        if (evento.getDataEvento().isEmpty() ){
+        if (evento.getDataEvento().equals("") ){
             throw new Exception("Favor inserir a data do evento.");
         }
         if ( evento.getHorarioEvento().isEmpty() ){

@@ -1,5 +1,6 @@
 package br.com.bartender.model;
 
+
 import java.sql.Date;
 
 
@@ -40,7 +41,7 @@ public class Evento {
         return dataEvento;
     }
 
-    public void setDataEvento(Date dataEvento) {
+    public void setDataEvento(Date dataEvento) {  
         this.dataEvento = dataEvento;
     }
 
