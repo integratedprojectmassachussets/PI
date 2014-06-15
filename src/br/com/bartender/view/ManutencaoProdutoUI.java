@@ -58,6 +58,8 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 500));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -327,7 +329,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         pack();
@@ -356,7 +358,9 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
     private void jtfManutencaoTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfManutencaoTipoActionPerformed
         // TODO add your handling code here:
         ManutencaoTipoUI manutencaoTipo = new ManutencaoTipoUI();
+        this.add(manutencaoTipo);
         manutencaoTipo.setVisible(true);
+        manutencaoTipo.moveToFront();
     }//GEN-LAST:event_jtfManutencaoTipoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

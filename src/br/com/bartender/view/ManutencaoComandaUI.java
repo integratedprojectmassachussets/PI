@@ -59,6 +59,8 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         jRadioButton6 = new javax.swing.JRadioButton();
         jButton8 = new javax.swing.JButton();
 
+        setClosable(true);
+
         jTabbedPane1.setBackground(new java.awt.Color(242, 241, 240));
         jTabbedPane1.setForeground(new java.awt.Color(242, 241, 240));
         jTabbedPane1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -390,10 +392,10 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGap(0, 577, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(15, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );

@@ -66,6 +66,8 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 500));
 
         jTable1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -350,7 +352,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         pack();
