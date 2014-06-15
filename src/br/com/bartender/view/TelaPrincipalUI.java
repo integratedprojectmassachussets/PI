@@ -348,7 +348,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                     .addComponent(jlNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlDataEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlHorarioEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -363,11 +363,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                 .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpPainelPrincipalLayout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(82, 82, 82))))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,8 +380,11 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                                 .addComponent(jtfBotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addGap(243, 243, 243)
-                        .addComponent(jLabel9)))
-                .addGap(34, 34, 34)
+                        .addComponent(jLabel9))
+                    .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19)
                 .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -394,7 +393,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                         .addGap(22, 22, 22))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addComponent(jdpPainelTelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(21, Short.MAX_VALUE))))
+                        .addContainerGap(36, Short.MAX_VALUE))))
         );
         jdpPainelPrincipalLayout.setVerticalGroup(
             jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,7 +424,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7))))
+                        .addGap(28, 28, 28))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -455,6 +454,8 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     private void jtfBotaoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoEventoActionPerformed
         // TODO add your handling code here:
         ManutencaoEventoUI manutencaoEvento = new ManutencaoEventoUI();
+        jdpPainelTelas.removeAll();
+        jdpPainelTelas.updateUI();
         jdpPainelTelas.add(manutencaoEvento);
         manutencaoEvento.setVisible(true);
     }//GEN-LAST:event_jtfBotaoEventoActionPerformed
@@ -462,6 +463,8 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     private void jtfBotaoComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoComandaActionPerformed
         // TODO add your handling code here:
         ManutencaoComandaUI manutencaoComanda = new ManutencaoComandaUI();
+        jdpPainelTelas.removeAll();
+        jdpPainelTelas.updateUI();
         jdpPainelTelas.add(manutencaoComanda);
         manutencaoComanda.setVisible(true);
     }//GEN-LAST:event_jtfBotaoComandaActionPerformed
@@ -469,6 +472,8 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     private void jtfBotaoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoProdutoActionPerformed
         // TODO add your handling code here:
         ManutencaoProdutoUI manutencaoProduto = new ManutencaoProdutoUI();
+        jdpPainelTelas.removeAll();
+        jdpPainelTelas.updateUI();
         jdpPainelTelas.add(manutencaoProduto);
         manutencaoProduto.setVisible(true);
         
