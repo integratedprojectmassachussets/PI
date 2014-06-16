@@ -551,12 +551,20 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         }
 
         this.listaConsumoTemp.clear();
+        ((DefaultTableModel) jtListaConsumoTemp.getModel()).setNumRows(0);
+        this.jtListaConsumoTemp.updateUI();
 
     }//GEN-LAST:event_jbCadastrarConsumoActionPerformed
 
     private void jbLimparConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparConsumoActionPerformed
         // TODO add your handling code here:
+        
+        
         this.listaConsumoTemp.clear();
+        ((DefaultTableModel) jtListaConsumoTemp.getModel()).setNumRows(0);
+        this.jtListaConsumoTemp.updateUI();
+        
+        
     }//GEN-LAST:event_jbLimparConsumoActionPerformed
 
     /**
