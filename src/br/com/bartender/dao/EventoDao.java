@@ -77,6 +77,98 @@ public class EventoDao {
         return this.listaEvento;
     }
     
+    
+    public ArrayList<Evento> listarEventoId(Evento evento){
+        this.listaEvento = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM EVENTO WHERE IDEVENTO=?";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setInt(1, evento.getIdEvento());
+            
+            ResultSet rs = st.executeQuery(query);
+            while( rs.next() ){
+                Evento e = new Evento();
+                e.setIdEvento(rs.getInt("IDEVENTO"));
+                e.setNomeEvento(rs.getString("NOMEEVENTO"));
+                e.setDataEvento(rs.getDate("DATAEVENTO"));
+                e.setHorarioEvento(rs.getString("HORARIOEVENTO"));
+                e.setValorMasc(rs.getDouble("VALORMASC"));
+                e.setValorFem(rs.getDouble("VALORFEM"));
+                
+                
+                this.listaEvento.add( e );
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return this.listaEvento;
+    }
+    
+    public ArrayList<Evento> listarEventoNome(Evento evento){
+        this.listaEvento = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM EVENTO WHERE NOMEEVENTO LIKE '%?%'";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setString(1, evento.getNomeEvento());
+            
+            ResultSet rs = st.executeQuery(query);
+            while( rs.next() ){
+                Evento e = new Evento();
+                e.setIdEvento(rs.getInt("IDEVENTO"));
+                e.setNomeEvento(rs.getString("NOMEEVENTO"));
+                e.setDataEvento(rs.getDate("DATAEVENTO"));
+                e.setHorarioEvento(rs.getString("HORARIOEVENTO"));
+                e.setValorMasc(rs.getDouble("VALORMASC"));
+                e.setValorFem(rs.getDouble("VALORFEM"));
+                
+                
+                this.listaEvento.add( e );
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return this.listaEvento;
+    }
+    
+    public ArrayList<Evento> listarEventoIntervaloData(Evento evento1, Evento evento2){
+        this.listaEvento = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM EVENTO WHERE EVENTODATA BETWEEN '?' AND '?'";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setInt(1, evento1.getIdEvento());
+            st.setInt(2, evento2.getIdEvento());
+            
+            ResultSet rs = st.executeQuery(query);
+            while( rs.next() ){
+                Evento e = new Evento();
+                e.setIdEvento(rs.getInt("IDEVENTO"));
+                e.setNomeEvento(rs.getString("NOMEEVENTO"));
+                e.setDataEvento(rs.getDate("DATAEVENTO"));
+                e.setHorarioEvento(rs.getString("HORARIOEVENTO"));
+                e.setValorMasc(rs.getDouble("VALORMASC"));
+                e.setValorFem(rs.getDouble("VALORFEM"));
+                
+                
+                this.listaEvento.add( e );
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return this.listaEvento;
+    }
+    
+    
+    
+    
     public void alterar(Evento evento){
          try {
              String query = "UPDATE EVENTO SET NOMEEVENTO=?, DATAEVENTO=?, HORARIOEVENTO=?, VALORMASC=?, VALORFEM=? WHERE IDEVENTO=?";
