@@ -22,13 +22,8 @@ public class Consumo {
     
 
     public Double getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal() {
-        
-        
         this.valorTotal = this.quantidadeProduto * this.produtoInserido.getValorProduto();
+        return valorTotal;
     }
     
     public Integer getIdConsumo() {

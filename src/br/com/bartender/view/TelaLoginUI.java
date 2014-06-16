@@ -153,7 +153,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String login = jtfCampoLogin.getText();
         String senha = jtfCampoSenha.getText();
-        if(login.equals("bartender") && senha.equals("pi12345")){
+        if(login.equals("pi") && senha.equals("pi")){
             TelaPrincipalUI telaPrincipal = new TelaPrincipalUI();
             telaPrincipal.setVisible(true);
         } else {

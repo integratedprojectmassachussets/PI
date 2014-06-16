@@ -19,7 +19,7 @@ import javax.swing.JDesktopPane;
  */
 public class TelaPrincipalUI extends javax.swing.JFrame {
 
-        private ArrayList<Consumo> listaConsumoTemp;
+        private ArrayList<Consumo> listaConsumoTemp = new ArrayList<Consumo>();
     /**
      * Creates new form TelaPrincipalUI
      */
@@ -29,7 +29,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     
     public void atualizarTabelaConsumo(){
         DefaultTableModel tabelaConsumoTemp = new DefaultTableModel();
-        tabelaConsumoTemp.setColumnIdentifiers(new String[] {"Codigo de barras","Descrição","Preço"});
+        tabelaConsumoTemp.setColumnIdentifiers(new String[] {"Produto","Valor unitario","Quantidade","Valor total"});
         
         for ( int i=0; i < this.listaConsumoTemp.size(); i++){
             tabelaConsumoTemp.addRow(new Object[] { this.listaConsumoTemp.get(i).getProdutoInserido().getNomeProduto(), 
@@ -82,7 +82,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1280, 700));
 
         jdpPainelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
-        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jdpPainelPrincipal.setForeground(new java.awt.Color(255, 0, 153));
         jdpPainelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 700));
 
@@ -393,7 +393,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                         .addGap(22, 22, 22))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addComponent(jdpPainelTelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(36, Short.MAX_VALUE))))
+                        .addContainerGap(40, Short.MAX_VALUE))))
         );
         jdpPainelPrincipalLayout.setVerticalGroup(
             jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,7 +408,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 4, Short.MAX_VALUE)
+                        .addGap(0, 24, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -556,7 +556,6 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
 
     private void jbLimparConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparConsumoActionPerformed
         // TODO add your handling code here:
-
         this.listaConsumoTemp.clear();
     }//GEN-LAST:event_jbLimparConsumoActionPerformed
 

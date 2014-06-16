@@ -6,7 +6,7 @@ package br.com.bartender.view;
 
 import br.com.bartender.controller.EventoController;
 import br.com.bartender.model.Evento;
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
@@ -376,7 +376,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
         try{
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-            dataEvento = (Date) sdf.parse(jtfEventoEditarData.getText());
+            dataEvento = sdf.parse(jtfEventoEditarData.getText());
          /*dataEvento = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(jtfEventoEditarData.getText()); 
           */
 

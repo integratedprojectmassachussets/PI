@@ -11,8 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author karim.scofield
@@ -42,7 +40,7 @@ public class EventoDao {
             PreparedStatement pst = con.getConnection().prepareStatement(query);
             pst.setInt(1, evento.getIdEvento());
             pst.setString(2, evento.getNomeEvento());
-            pst.setDate(3, evento.getDataEvento());
+            pst.setDate(3, new java.sql.Date(evento.getDataEvento().getTime()));
             pst.setString(4, evento.getHorarioEvento());
             pst.setDouble(5, evento.getValorMasc());
             pst.setDouble(6, evento.getValorFem());
@@ -85,7 +83,7 @@ public class EventoDao {
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setString(1, evento.getNomeEvento());
-            st.setDate(2, evento.getDataEvento());
+            st.setDate(2, new java.sql.Date(evento.getDataEvento().getTime()));
             st.setString(3, evento.getHorarioEvento());
             st.setDouble(4, evento.getValorMasc());
             st.setDouble(5, evento.getValorFem());

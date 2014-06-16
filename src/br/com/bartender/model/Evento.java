@@ -1,7 +1,7 @@
 package br.com.bartender.model;
 
 
-import java.sql.Date;
+import java.util.Date;
 
 
 /**
