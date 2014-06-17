@@ -92,6 +92,30 @@ public class EventoController {
             
     }
     
+    public void ListarEventoId(Evento evento) throws Exception{
+        if(evento.getIdEvento().equals("")){
+            throw new Exception("ID inválido");
+        }
+        
+        EventoDao.obterInstancia().listarEventoId(evento);
+    }
+    
+     public void ListarEventoNome(Evento evento) throws Exception{
+        if(evento.getNomeEvento().isEmpty()){
+            throw new Exception("Favor inserir o nome.");
+        }
+        
+        EventoDao.obterInstancia().listarEventoNome(evento);
+    }
+     
+      public void ListarEventoIntervaloData(Evento evento) throws Exception{
+        if(evento.getDataEvento().equals("")){
+            throw new Exception("Favor inserir a data.");
+        }
+        
+        EventoDao.obterInstancia().listarEventoIntervaloData(evento, evento);
+    }
+    
     
     
 }
