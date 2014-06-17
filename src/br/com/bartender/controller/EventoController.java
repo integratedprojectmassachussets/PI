@@ -92,28 +92,32 @@ public class EventoController {
             
     }
     
-    public void ListarEventoId(Evento evento) throws Exception{
+    public ArrayList<Evento> ListarEventoId(Evento evento) throws Exception{
         if(evento.getIdEvento().equals("")){
             throw new Exception("ID inválido");
         }
         
-        EventoDao.obterInstancia().listarEventoId(evento);
+      return  EventoDao.obterInstancia().listarEventoId(evento);
+        
     }
     
-     public void ListarEventoNome(Evento evento) throws Exception{
+     public ArrayList<Evento> ListarEventoNome(Evento evento) throws Exception{
         if(evento.getNomeEvento().isEmpty()){
             throw new Exception("Favor inserir o nome.");
         }
         
-        EventoDao.obterInstancia().listarEventoNome(evento);
+       return EventoDao.obterInstancia().listarEventoNome(evento);
     }
      
-      public void ListarEventoIntervaloData(Evento evento) throws Exception{
-        if(evento.getDataEvento().equals("")){
+      public ArrayList<Evento> ListarEventoIntervaloData(Evento evento1, Evento evento2) throws Exception{
+        if(evento1.getDataEvento().equals("")){
+            throw new Exception("Favor inserir a data.");
+        }
+        if(evento2.getDataEvento().equals("")){
             throw new Exception("Favor inserir a data.");
         }
         
-        EventoDao.obterInstancia().listarEventoIntervaloData(evento, evento);
+       return EventoDao.obterInstancia().listarEventoIntervaloData(evento1, evento2);
     }
     
     
