@@ -373,9 +373,11 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
 
     private void jtfEventoSalvarEdicaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtfEventoSalvarEdicaoMouseClicked
         // TODO add your handling code here:
+        
         /*
-        Eduardo, tirar aquele campo de ID da parte de baixo, é desnecessário
-        */
+         * Falta fazer o comportamento de alterar Evento
+         */
+        
         Date dataEvento = null;
 
         Evento evento = new Evento();
@@ -453,7 +455,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
         ((DefaultTableModel) jtListaEvento.getModel()).setNumRows(0);
         this.jtListaEvento.updateUI();
         
-        if (jtfEventoBuscarId.getText() != null){
+        if (!jtfEventoBuscarId.getText().equals("")){
             try{
         Evento evento = new Evento();
         
@@ -466,7 +468,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
             }
-        } else if (jtfEventoBuscarNome.getText() != null){
+        } else if (!jtfEventoBuscarNome.getText().equals("")){
             try{
         Evento evento = new Evento();
         
@@ -481,8 +483,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
             }
         } else if (jtfEventoBuscarDataDe.getText() != null && jtfEventoBuscardataAte != null){
             try{
-        Evento evento1 = new Evento();
-        Evento evento2 = new Evento();
+        
         
         SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
             dataEvento1 = sdf.parse(jtfEventoBuscarDataDe.getText());
@@ -490,9 +491,8 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
             SimpleDateFormat sdf2 = new SimpleDateFormat("dd/mm/yyyy");
             dataEvento2 = sdf2.parse(jtfEventoBuscardataAte.getText());
         
-        evento1.setDataEvento(dataEvento1);
-        evento2.setDataEvento(dataEvento2);
-        this.listaEvento = EventoController.obterInstancia().ListarEventoIntervaloData(evento1, evento2);
+        
+        this.listaEvento = EventoController.obterInstancia().ListarEventoIntervaloData(dataEvento1, dataEvento2);
         
         
         atualizarTabelaEvento();

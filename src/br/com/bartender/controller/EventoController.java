@@ -3,6 +3,7 @@ package br.com.bartender.controller;
 import br.com.bartender.dao.EventoDao;
 import br.com.bartender.model.Evento;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -109,15 +110,15 @@ public class EventoController {
        return EventoDao.obterInstancia().listarEventoNome(evento);
     }
      
-      public ArrayList<Evento> ListarEventoIntervaloData(Evento evento1, Evento evento2) throws Exception{
-        if(evento1.getDataEvento().equals("")){
+      public ArrayList<Evento> ListarEventoIntervaloData(Date evento1, Date evento2) throws Exception{
+        if(evento1.equals("")){
             throw new Exception("Favor inserir a data.");
         }
-        if(evento2.getDataEvento().equals("")){
+        if(evento2.equals("")){
             throw new Exception("Favor inserir a data.");
         }
         
-       return EventoDao.obterInstancia().listarEventoIntervaloData(evento1, evento2);
+       return EventoDao.obterInstancia().listarEventoIntervaloData(new java.sql.Date(evento1.getTime()), new java.sql.Date(evento2.getTime()));
     }
     
     

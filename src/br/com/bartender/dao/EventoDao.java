@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Date;
 /**
  *
  * @author karim.scofield
@@ -136,14 +137,14 @@ public class EventoDao {
         return this.listaEvento;
     }
     
-    public ArrayList<Evento> listarEventoIntervaloData(Evento evento1, Evento evento2){
+    public ArrayList<Evento> listarEventoIntervaloData(Date evento1, Date evento2){
         this.listaEvento = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
             String query = "SELECT * FROM EVENTO WHERE EVENTODATA BETWEEN '?' AND '?'";
             PreparedStatement st = con.getConnection().prepareStatement(query);
             
-            st.setInt(1, evento1.getIdEvento());
-            st.setInt(2, evento2.getIdEvento());
+            st.setDate(1, evento1);
+            st.setDate(2, evento2);
             
             ResultSet rs = st.executeQuery(query);
             while( rs.next() ){

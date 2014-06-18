@@ -9,8 +9,18 @@ public class Produto {
     private Integer idProduto;
     private String nomeProduto;    
     private Double valorProduto;
+    private Tipo tipoProduto;
 
+    
+    
+    
+    public Tipo getTipoProduto() {
+        return tipoProduto;
+    }
 
+    public void setTipoProduto(Tipo tipoProduto) {
+        this.tipoProduto = tipoProduto;
+    }
     
     public Integer getIdProduto() {
         return idProduto;
