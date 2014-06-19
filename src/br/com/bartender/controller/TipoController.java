@@ -35,6 +35,15 @@ public class TipoController {
         TipoDao.obterInstancia().inserir(tipo);
     }
     
+    public Tipo buscarTipo(String nome)throws Exception{
+        
+        if(nome.equals("")){
+            throw new Exception("Escolha um tipo de produto");
+        }
+        
+        return TipoDao.obterInstancia().buscarTipo(nome);
+    }
+    
     
     public ArrayList<Tipo> listarTodos(){
         return TipoDao.obterInstancia().listarTodos();

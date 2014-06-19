@@ -3,6 +3,7 @@ package br.com.bartender.dao;
 
 import java.util.ArrayList;
 import br.com.bartender.model.Produto;
+import br.com.bartender.model.Tipo;
 import br.com.bartender.util.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -85,6 +86,142 @@ public class ProdutoDao {
             ex.printStackTrace();
         }
     }
+    
+    public ArrayList<Produto> listarProdutoId(Produto produto){
+        this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.PRODUTO_IDTIPO = T.IDTIPO WHERE IDPRODUTO=?";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setInt(1, produto.getIdProduto());
+            
+            ResultSet rs = st.executeQuery();
+            while( rs.next() ){
+                Produto p = new Produto();
+                Tipo t = new Tipo();
+                
+                
+                t.setIdTipo(rs.getInt("IDTIPO"));
+                t.setNomeTipo(rs.getString("NOMETIPO"));
+                
+                p.setIdProduto(rs.getInt("IDPRODUTO"));
+                p.setNomeProduto(rs.getString("NOMEPRODUTO"));
+                p.setValorProduto(rs.getDouble("VALORPRODUTO"));
+                p.setTipoProduto(t);
+                
+                
+                this.listaProduto.add( p );
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return this.listaProduto;
+    }
+    
+    public ArrayList<Produto> listarProdutoNome(Produto produto){
+        this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.PRODUTO_IDTIPO = T.IDTIPO WHERE NOMEPRODUTO LIKE ?";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setString(1, "%"+produto.getNomeProduto()+"%");
+            
+            ResultSet rs = st.executeQuery();
+            while( rs.next() ){
+                Produto p = new Produto();
+                Tipo t = new Tipo();
+                
+                
+                t.setIdTipo(rs.getInt("IDTIPO"));
+                t.setNomeTipo(rs.getString("NOMETIPO"));
+                
+                p.setIdProduto(rs.getInt("IDPRODUTO"));
+                p.setNomeProduto(rs.getString("NOMEPRODUTO"));
+                p.setValorProduto(rs.getDouble("VALORPRODUTO"));
+                p.setTipoProduto(t);
+                
+                
+                this.listaProduto.add( p );
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return this.listaProduto;
+    }
+    
+    public ArrayList<Produto> listarProdutoIntervaloPreco(Double preco1, Double preco2){
+        this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.PRODUTO_IDTIPO = T.IDTIPO WHERE VALORPRODUTO BETWEEN ? AND ?";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setDouble(1, preco1);
+            st.setDouble(2, preco2);
+            
+            ResultSet rs = st.executeQuery();
+            while( rs.next() ){
+                Produto p = new Produto();
+                Tipo t = new Tipo();
+                
+                
+                t.setIdTipo(rs.getInt("IDTIPO"));
+                t.setNomeTipo(rs.getString("NOMETIPO"));
+                
+                p.setIdProduto(rs.getInt("IDPRODUTO"));
+                p.setNomeProduto(rs.getString("NOMEPRODUTO"));
+                p.setValorProduto(rs.getDouble("VALORPRODUTO"));
+                p.setTipoProduto(t);
+                
+                
+                this.listaProduto.add( p );
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return this.listaProduto;
+    }
+    
+    public ArrayList<Produto> listarProdutoTipo(String nome){
+        this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM TIPO T JOIN PRODUTO P ON T.IDTIPO = P.PRODUTO_IDTIPO WHERE NOMETIPO = ?";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setString(1, nome);
+            
+            ResultSet rs = st.executeQuery();
+            while( rs.next() ){
+                Produto p = new Produto();
+                Tipo t = new Tipo();
+                
+                
+                t.setIdTipo(rs.getInt("IDTIPO"));
+                t.setNomeTipo(rs.getString("NOMETIPO"));
+                
+                p.setIdProduto(rs.getInt("IDPRODUTO"));
+                p.setNomeProduto(rs.getString("NOMEPRODUTO"));
+                p.setValorProduto(rs.getDouble("VALORPRODUTO"));
+                p.setTipoProduto(t);
+                
+                
+                this.listaProduto.add( p );
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return this.listaProduto;
+    }
+    
+    
+    
     
     public void remover(Produto produto) throws Exception{
        try {

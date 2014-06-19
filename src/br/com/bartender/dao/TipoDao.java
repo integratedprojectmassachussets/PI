@@ -67,6 +67,30 @@ public class TipoDao {
         return this.listaTipo;
     }
     
+    public Tipo buscarTipo(String nome){
+        Tipo tipo = new Tipo();
+        
+        try {
+            String query = "SELECT * FROM TIPO WHERE NOMETIPO=?";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            st.setString(1, nome);
+            
+            ResultSet rs = st.executeQuery(query);
+            
+                
+                tipo.setIdTipo(rs.getInt("IDTIPO"));
+                tipo.setNomeTipo(rs.getString("NOMETIPO"));
+                
+                
+            
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return tipo;
+    }
+    
     
     public void remover(Tipo tipo) throws Exception{
        try {

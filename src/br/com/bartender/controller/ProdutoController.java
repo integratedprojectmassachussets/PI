@@ -72,10 +72,47 @@ public class ProdutoController {
         if(produto.getNomeProduto().isEmpty()){
             throw new Exception("Favor inserir o nome do produto.");
         }
-        
-        
-        
+
         ProdutoDao.obterInstancia().verificaExistencia(produto);
         
     }
+    
+    
+    public ArrayList<Produto> ListarProdutoId(Produto produto) throws Exception{
+        if(produto.getIdProduto().equals("")){
+            throw new Exception("ID inválido");
+        }
+        
+      return  ProdutoDao.obterInstancia().listarProdutoId(produto);
+        
+    }
+    
+     public ArrayList<Produto> ListarProdutoNome(Produto produto) throws Exception{
+        if(produto.getNomeProduto().isEmpty()){
+            throw new Exception("Favor inserir o nome.");
+        }
+        
+       return ProdutoDao.obterInstancia().listarProdutoNome(produto);
+    }
+     
+      public ArrayList<Produto> ListarProdutoIntervaloPreco(Double preco1, Double preco2) throws Exception{
+        if(preco1.equals("")){
+            throw new Exception("Favor inserir o valor inicial.");
+        }
+        if(preco2.equals("")){
+            throw new Exception("Favor inserir o valor final.");
+        }
+        
+       return ProdutoDao.obterInstancia().listarProdutoIntervaloPreco(preco1, preco2);
+    }
+      
+      public ArrayList<Produto> ListarProdutoTipo(String nome) throws Exception{
+        if(nome.equals("")){
+            throw new Exception("Favor escolher um tipo");
+        }
+        
+        
+       return ProdutoDao.obterInstancia().listarProdutoTipo(nome);
+    }
+      
 }

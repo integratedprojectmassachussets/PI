@@ -6,9 +6,9 @@ package br.com.bartender.view;
 
 import br.com.bartender.controller.EventoController;
 import br.com.bartender.model.Evento;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Logger;
 import java.util.zip.DataFormatException;
 import javax.swing.JOptionPane;
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
 
-    private ArrayList<Evento> listaEvento = new ArrayList<Evento>();
+    private ArrayList<Evento> listaEvento = new ArrayList<>();
 
     /**
      * Creates new form ManutencaoEventoUI
@@ -29,7 +29,8 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public void atualizarTabelaEvento() {
+   
+    public void tabelaEvento() {
         DefaultTableModel tabelaEvento = new DefaultTableModel();
         tabelaEvento.setColumnIdentifiers(new String[]{"ID", "Nome", "Data", "Horario", "Valor Masculino", "Valor Feminino"});
 
@@ -436,7 +437,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
         this.jtListaEvento.updateUI();
 
         this.listaEvento = EventoController.obterInstancia().listarTodos();
-        atualizarTabelaEvento();
+        tabelaEvento();
 
 
     }//GEN-LAST:event_jtfEventoExcluirActionPerformed
@@ -464,7 +465,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
                 this.listaEvento = EventoController.obterInstancia().ListarEventoId(evento);
 
 
-                atualizarTabelaEvento();
+                tabelaEvento();
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
@@ -477,7 +478,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
                 this.listaEvento = EventoController.obterInstancia().ListarEventoNome(evento);
 
 
-                atualizarTabelaEvento();
+                tabelaEvento();
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
@@ -496,7 +497,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
                 this.listaEvento = EventoController.obterInstancia().ListarEventoIntervaloData(dataEvento1, dataEvento2);
 
 
-                atualizarTabelaEvento();
+                tabelaEvento();
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
@@ -523,7 +524,7 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
         this.jtListaEvento.updateUI();
 
         this.listaEvento = EventoController.obterInstancia().listarTodos();
-        atualizarTabelaEvento();
+        tabelaEvento();
 
 
 

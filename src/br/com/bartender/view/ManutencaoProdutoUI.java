@@ -4,13 +4,16 @@
  */
 package br.com.bartender.view;
 
+import br.com.bartender.controller.ProdutoController;
 import br.com.bartender.controller.TipoController;
 import br.com.bartender.model.Produto;
 import br.com.bartender.model.Tipo;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,8 +22,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
 
-    private ArrayList<Tipo> listaTipo = new ArrayList<Tipo>();
-    private ArrayList<Produto> listaProduto = new ArrayList<Produto>();
+    private ArrayList<Tipo> listaTipo = new ArrayList<>();
+    private ArrayList<Produto> listaProduto = new ArrayList<>();
     
     public ManutencaoProdutoUI() {
         initComponents();
@@ -37,7 +40,8 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         jcEscolherTipo.setModel(comboListarTipos);
     }
     
-    public void TabelaProduto(){
+    
+    public void tabelaProduto(){
         DefaultTableModel tabelaProduto = new DefaultTableModel();
         tabelaProduto.setColumnIdentifiers(new String[] {"ID","Nome","Tipo","Valor Unitário"});
         
@@ -74,7 +78,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         jtfBuscarIdProduto = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jtfBuscarNomeProduto = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jbBuscarProduto = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jtfBuscarPrecoDe = new javax.swing.JFormattedTextField();
@@ -82,7 +86,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         jtfBuscarPrecoAte = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jcBuscarTipo = new javax.swing.JComboBox();
-        jButton7 = new javax.swing.JButton();
+        jbListarTodosProdutos = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jtfCadastrarNomeProduto = new javax.swing.JTextField();
@@ -124,7 +128,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaProduto);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 14), new java.awt.Color(1, 1, 1))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Produto", 0, 0, new java.awt.Font("Ubuntu", 1, 14), new java.awt.Color(1, 1, 1))); // NOI18N
 
         jLabel2.setText("ID:");
 
@@ -142,7 +146,12 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Buscar");
+        jbBuscarProduto.setText("Buscar");
+        jbBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarProdutoActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Preço Unitário:");
 
@@ -166,7 +175,12 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
 
         jcBuscarTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton7.setText("Listar Todos");
+        jbListarTodosProdutos.setText("Listar Todos");
+        jbListarTodosProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbListarTodosProdutosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -199,8 +213,8 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                         .addComponent(jcBuscarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jbBuscarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbListarTodosProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +226,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                         .addComponent(jtfBuscarIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jtfBuscarNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3))
-                    .addComponent(jButton1))
+                    .addComponent(jbBuscarProduto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -222,11 +236,11 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                     .addComponent(jtfBuscarPrecoAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jcBuscarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
+                    .addComponent(jbListarTodosProdutos))
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar/Editar Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(1, 1, 1))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar/Editar Produto", 0, 0, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(1, 1, 1))); // NOI18N
 
         jLabel10.setText("Nome:");
 
@@ -248,6 +262,11 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         });
 
         jbSalvarProtudo.setText("Salvar");
+        jbSalvarProtudo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalvarProtudoActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Preço Unitário:");
 
@@ -337,7 +356,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         jdpProdutoUILayout.setVerticalGroup(
             jdpProdutoUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdpProdutoUILayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,7 +377,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jdpProdutoUI, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         pack();
@@ -395,15 +414,147 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
 
     private void jbLimparListaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparListaProdutoActionPerformed
         // TODO add your handling code here:
+        
+        this.listaProduto.clear();
+        ((DefaultTableModel) jtListaProduto.getModel()).setNumRows(0);
+        this.jtListaProduto.updateUI();
+        
+        
     }//GEN-LAST:event_jbLimparListaProdutoActionPerformed
 
     private void jbExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirProdutoActionPerformed
         // TODO add your handling code here:
+        
+        try {
+
+
+            ProdutoController.obterInstancia().Excluir(this.listaProduto.get(jtListaProduto.getSelectedRow()));
+
+        } catch (ArrayIndexOutOfBoundsException a) {
+            JOptionPane.showMessageDialog(null, "Selecione um produto");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+       
+        this.listaProduto.clear();
+        ((DefaultTableModel) jtListaProduto.getModel()).setNumRows(0);
+        this.jtListaProduto.updateUI();
+
+        this.listaProduto = ProdutoController.obterInstancia().listarTodos();
+        tabelaProduto();
+        
+        
     }//GEN-LAST:event_jbExcluirProdutoActionPerformed
 
+    private void jbListarTodosProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListarTodosProdutosActionPerformed
+        // TODO add your handling code here:
+        this.listaProduto.clear();
+        ((DefaultTableModel) jtListaProduto.getModel()).setNumRows(0);
+        this.jtListaProduto.updateUI();
+        
+        this.listaProduto = ProdutoController.obterInstancia().listarTodos();
+        tabelaProduto();
+        
+        
+    }//GEN-LAST:event_jbListarTodosProdutosActionPerformed
+
+    private void jbSalvarProtudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarProtudoActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+
+            Produto produto = new Produto();
+            
+            
+            produto.setNomeProduto(jtfCadastrarNomeProduto.getText());
+            produto.setValorProduto(Double.parseDouble(jtfCadastrarPrecoProduto.getText()));      
+            produto.setTipoProduto(TipoController.obterInstancia().buscarTipo(jcEscolherTipo.getSelectedItem().toString()));
+            
+            ProdutoController.obterInstancia().Cadastrar(produto);
+
+        
+        } catch (Exception ex) {
+            Logger.getLogger(ManutencaoEventoUI.class.getName());
+            JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+        }
+
+        JOptionPane.showMessageDialog(
+                null, "Evento cadastrado com sucesso!", "Confirmação de Cadastro", WIDTH);
+        
+        
+    }//GEN-LAST:event_jbSalvarProtudoActionPerformed
+
+    private void jbBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarProdutoActionPerformed
+        // TODO add your handling code here:
+        
+        this.listaProduto.clear();
+        ((DefaultTableModel) jtListaProduto.getModel()).setNumRows(0);
+        this.jtListaProduto.updateUI();
+        
+        
+        
+        if (!jtfBuscarIdProduto.getText().equals("")) {
+            try{
+                Produto produto = new Produto();
+                
+                produto.setIdProduto(Integer.parseInt(jtfBuscarIdProduto.getText()));
+                this.listaProduto = ProdutoController.obterInstancia().ListarProdutoId(produto);
+                
+                tabelaProduto();
+                
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+            }
+        }else if (!jtfBuscarNomeProduto.getText().equals("")) {
+            try{
+                Produto produto = new Produto();
+                
+                produto.setNomeProduto(jtfBuscarNomeProduto.getText());
+                this.listaProduto = ProdutoController.obterInstancia().ListarProdutoNome(produto);
+                
+                tabelaProduto();
+                
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+            }
+        } else if (!jtfBuscarPrecoDe.getText().equals("") && jtfBuscarPrecoAte.getText().equals("")) {
+            try{
+                
+                Double preco1;
+                Double preco2;
+                
+                preco1 = Double.parseDouble(jtfBuscarPrecoDe.getText());
+                preco2 = Double.parseDouble(jtfBuscarPrecoAte.getText());
+                this.listaProduto = ProdutoController.obterInstancia().ListarProdutoIntervaloPreco(preco1, preco2);
+                
+                tabelaProduto();
+                
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+            }
+        }else  {
+            try{
+                
+                
+                String nome = jcEscolherTipo.getSelectedItem().toString();
+                
+                this.listaProduto = ProdutoController.obterInstancia().ListarProdutoTipo(nome);
+                
+                tabelaProduto();
+                
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+            }
+        }
+        
+        
+    }//GEN-LAST:event_jbBuscarProdutoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -417,8 +568,10 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbBuscarProduto;
     private javax.swing.JButton jbExcluirProduto;
     private javax.swing.JButton jbLimparListaProduto;
+    private javax.swing.JButton jbListarTodosProdutos;
     private javax.swing.JButton jbSalvarProtudo;
     private javax.swing.JComboBox jcBuscarTipo;
     private javax.swing.JComboBox jcEscolherTipo;

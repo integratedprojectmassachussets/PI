@@ -110,10 +110,10 @@ public class EventoController {
      
       public ArrayList<Evento> ListarEventoIntervaloData(Date evento1, Date evento2) throws Exception{
         if(evento1.equals("")){
-            throw new Exception("Favor inserir a data.");
+            throw new Exception("Favor inserir a data inicial.");
         }
         if(evento2.equals("")){
-            throw new Exception("Favor inserir a data.");
+            throw new Exception("Favor inserir a data final.");
         }
         
        return EventoDao.obterInstancia().listarEventoIntervaloData(new java.sql.Date(evento1.getTime()), new java.sql.Date(evento2.getTime()));
