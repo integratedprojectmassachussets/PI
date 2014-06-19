@@ -50,7 +50,7 @@ public class Evento {
     }
 
     public void setHorarioEvento(String horaInicio) {
-        this.horarioEvento = horarioEvento;
+        this.horarioEvento = horaInicio;
     }
 
 

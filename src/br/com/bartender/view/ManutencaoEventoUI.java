@@ -9,6 +9,8 @@ import br.com.bartender.model.Evento;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Logger;
+import java.util.zip.DataFormatException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,34 +20,31 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
 
-    
     private ArrayList<Evento> listaEvento = new ArrayList<Evento>();
-    
+
     /**
      * Creates new form ManutencaoEventoUI
      */
     public ManutencaoEventoUI() {
         initComponents();
     }
-    
-    public void atualizarTabelaEvento(){
+
+    public void atualizarTabelaEvento() {
         DefaultTableModel tabelaEvento = new DefaultTableModel();
-        tabelaEvento.setColumnIdentifiers(new String[] {"ID","Nome","Data","Horario","Valor Masculino", "Valor Feminino"});
-        
-        for ( int i=0; i < this.listaEvento.size(); i++){
-            tabelaEvento.addRow(new Object[] { this.listaEvento.get(i).getIdEvento(), 
-                this.listaEvento.get(i).getNomeEvento(),
-                this.listaEvento.get(i).getDataEvento(),
-                this.listaEvento.get(i).getHorarioEvento(),
-                this.listaEvento.get(i).getValorMasc(),
-                this.listaEvento.get(i).getValorFem() });
-        
-           
+        tabelaEvento.setColumnIdentifiers(new String[]{"ID", "Nome", "Data", "Horario", "Valor Masculino", "Valor Feminino"});
+
+        for (int i = 0; i < this.listaEvento.size(); i++) {
+            tabelaEvento.addRow(new Object[]{this.listaEvento.get(i).getIdEvento(),
+                        this.listaEvento.get(i).getNomeEvento(),
+                        this.listaEvento.get(i).getDataEvento(),
+                        this.listaEvento.get(i).getHorarioEvento(),
+                        this.listaEvento.get(i).getValorMasc(),
+                        this.listaEvento.get(i).getValorFem()});
+
+
         }
-        jtListaEvento.setModel(tabelaEvento);        
+        jtListaEvento.setModel(tabelaEvento);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -373,137 +372,139 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
 
     private void jtfEventoSalvarEdicaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtfEventoSalvarEdicaoMouseClicked
         // TODO add your handling code here:
-        
+
         /*
          * Falta fazer o comportamento de alterar Evento
          */
-        
-        Date dataEvento = null;
+        try {
 
-        Evento evento = new Evento();
-        /* if(jtfEventoEditarID.getText() != null ){
-            evento.setIdEvento(Integer.parseInt(jtfEventoEditarID.getText()));
-        }
-        */
-        evento.setNomeEvento(jtfEventoEditarNome.getText());
-        evento.setHorarioEvento(jtfEventoEditarHorario.getText());
+            Date dataEvento = null;
 
-        try{
-
+            Evento evento = new Evento();
+            /* if(jtfEventoEditarID.getText() != null ){
+             evento.setIdEvento(Integer.parseInt(jtfEventoEditarID.getText()));
+             }
+             */
+            evento.setNomeEvento(jtfEventoEditarNome.getText());
+            evento.setHorarioEvento(jtfEventoEditarHorario.getText());
             SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
             dataEvento = sdf.parse(jtfEventoEditarData.getText());
-         /*dataEvento = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(jtfEventoEditarData.getText()); 
-          */
-
-            
-
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Data inválida");
-        }
-        evento.setDataEvento(dataEvento);
-        evento.setValorMasc(Double.parseDouble(jtfEventoEditarValorMasc.getText()));
-        evento.setValorFem(Double.parseDouble(jtfEventoEditarValorFem.getText()));
-        try {
+            /*dataEvento = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(jtfEventoEditarData.getText()); 
+             */
+            evento.setDataEvento(dataEvento);
+            evento.setValorMasc(Double.parseDouble(jtfEventoEditarValorMasc.getText()));
+            evento.setValorFem(Double.parseDouble(jtfEventoEditarValorFem.getText()));
             EventoController.obterInstancia().Cadastrar(evento);
+
+        } catch (DataFormatException e) {
+            JOptionPane.showMessageDialog(null, "Data inválida");
         } catch (Exception ex) {
+            Logger.getLogger(ManutencaoEventoUI.class.getName());
             JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
         }
 
-        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!", "Confirmação de Cadastro", WIDTH);
+        JOptionPane.showMessageDialog(
+                null, "Evento cadastrado com sucesso!", "Confirmação de Cadastro", WIDTH);
     }//GEN-LAST:event_jtfEventoSalvarEdicaoMouseClicked
 
     private void jtfEventoLimparEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoLimparEdicaoActionPerformed
         // TODO add your handling code here:
-        
+
         this.listaEvento.clear();
         ((DefaultTableModel) jtListaEvento.getModel()).setNumRows(0);
         this.jtListaEvento.updateUI();
-        
+
     }//GEN-LAST:event_jtfEventoLimparEdicaoActionPerformed
 
     private void jtfEventoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoExcluirActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
         try {
-          
-            
+
+
             EventoController.obterInstancia().Excluir(this.listaEvento.get(jtListaEvento.getSelectedRow()));
-            
-        } catch ( ArrayIndexOutOfBoundsException a){
+
+        } catch (ArrayIndexOutOfBoundsException a) {
             JOptionPane.showMessageDialog(null, "Selecione um produto");
-        } catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        } 
+        }
+       
+        this.listaEvento.clear();
+        ((DefaultTableModel) jtListaEvento.getModel()).setNumRows(0);
+        this.jtListaEvento.updateUI();
+
+        this.listaEvento = EventoController.obterInstancia().listarTodos();
         atualizarTabelaEvento();
-        
-        
+
+
     }//GEN-LAST:event_jtfEventoExcluirActionPerformed
 
     private void jbBuscarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarEventoActionPerformed
         // TODO add your handling code here:
-        
+
         /*
          * Verificar como fazer pra escolher apenas um campo
          */
-        
+
         Date dataEvento1 = null;
         Date dataEvento2 = null;
-        
-        
+
+
         this.listaEvento.clear();
         ((DefaultTableModel) jtListaEvento.getModel()).setNumRows(0);
         this.jtListaEvento.updateUI();
-        
-        if (!jtfEventoBuscarId.getText().equals("")){
-            try{
-        Evento evento = new Evento();
-        
-        evento.setIdEvento(Integer.parseInt(jtfEventoBuscarId.getText()));
-        this.listaEvento = EventoController.obterInstancia().ListarEventoId(evento);
-        
-        
-        atualizarTabelaEvento();
-        
-            } catch (Exception e){
+
+        if (!jtfEventoBuscarId.getText().equals("")) {
+            try {
+                Evento evento = new Evento();
+
+                evento.setIdEvento(Integer.parseInt(jtfEventoBuscarId.getText()));
+                this.listaEvento = EventoController.obterInstancia().ListarEventoId(evento);
+
+
+                atualizarTabelaEvento();
+
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
             }
-        } else if (!jtfEventoBuscarNome.getText().equals("")){
-            try{
-        Evento evento = new Evento();
-        
-        evento.setNomeEvento(jtfEventoBuscarId.getText());
-        this.listaEvento = EventoController.obterInstancia().ListarEventoNome(evento);
-        
-        
-        atualizarTabelaEvento();
-        
-            } catch (Exception e){
+        } else if (!jtfEventoBuscarNome.getText().equals("")) {
+            try {
+                Evento evento = new Evento();
+
+                evento.setNomeEvento(jtfEventoBuscarNome.getText());
+                this.listaEvento = EventoController.obterInstancia().ListarEventoNome(evento);
+
+
+                atualizarTabelaEvento();
+
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
             }
-        } else if (jtfEventoBuscarDataDe.getText() != null && jtfEventoBuscardataAte != null){
-            try{
-        
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-            dataEvento1 = sdf.parse(jtfEventoBuscarDataDe.getText());
-            
-            SimpleDateFormat sdf2 = new SimpleDateFormat("dd/mm/yyyy");
-            dataEvento2 = sdf2.parse(jtfEventoBuscardataAte.getText());
-        
-        
-        this.listaEvento = EventoController.obterInstancia().ListarEventoIntervaloData(dataEvento1, dataEvento2);
-        
-        
-        atualizarTabelaEvento();
-        
-            } catch (Exception e){
+        } else if (jtfEventoBuscarDataDe.getText() != null && jtfEventoBuscardataAte != null) {
+            try {
+
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+                dataEvento1 = sdf.parse(jtfEventoBuscarDataDe.getText());
+
+                SimpleDateFormat sdf2 = new SimpleDateFormat("dd/mm/yyyy");
+                dataEvento2 = sdf2.parse(jtfEventoBuscardataAte.getText());
+
+
+                this.listaEvento = EventoController.obterInstancia().ListarEventoIntervaloData(dataEvento1, dataEvento2);
+
+
+                atualizarTabelaEvento();
+
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
             }
         }
-        
-        
-        
+
+
+
     }//GEN-LAST:event_jbBuscarEventoActionPerformed
 
     private void jtfEventoBuscarDataDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoBuscarDataDeActionPerformed
@@ -520,13 +521,13 @@ public class ManutencaoEventoUI extends javax.swing.JInternalFrame {
         this.listaEvento.clear();
         ((DefaultTableModel) jtListaEvento.getModel()).setNumRows(0);
         this.jtListaEvento.updateUI();
-        
-        this.listaEvento = EventoController.obterInstancia().listarTodos();
-        
-        
-        
-    }//GEN-LAST:event_jbBuscarTodosEventosActionPerformed
 
+        this.listaEvento = EventoController.obterInstancia().listarTodos();
+        atualizarTabelaEvento();
+
+
+
+    }//GEN-LAST:event_jbBuscarTodosEventosActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;

@@ -156,6 +156,7 @@ public class TelaLoginUI extends javax.swing.JFrame {
         if(login.equals("pi") && senha.equals("pi")){
             TelaPrincipalUI telaPrincipal = new TelaPrincipalUI();
             telaPrincipal.setVisible(true);
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Login ou senha incorretos.");
         }

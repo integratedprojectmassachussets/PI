@@ -22,16 +22,14 @@ public class EventoController {
     
     public void Cadastrar(Evento evento) throws Exception{
         
-        if (evento.getIdEvento().equals("") ){
-            throw new Exception("Id inválido.");
-        }
+        
         if (evento.getNomeEvento().isEmpty() ){
             throw new Exception("Favor inserir o nome do evento.");
         }
-        if ( evento.getDataEvento().equals("") ){
+        /*if ( evento.getDataEvento() ){
             throw new Exception("Favor inserir a data do evento.");
-        }
-        if ( evento.getHorarioEvento().isEmpty() ){
+        }*/
+        if ( evento.getHorarioEvento().equals("")){
             throw new Exception("Favor inserir o horário do evento.");
         }
         if ( evento.getValorMasc().equals("") ){

@@ -37,14 +37,14 @@ public class EventoDao {
     
     public void inserir(Evento evento){
         try {
-            String query = "INSERT INTO EVENTO ( IDEVENTO, NOMEEVENTO, DATAEVENTO, HORARIOEVENTO, VALORMASC, VALORFEM  ) VALUES ( ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO EVENTO ( NOMEEVENTO, DATAEVENTO, HORARIOEVENTO, VALORMASC, VALORFEM  ) VALUES ( ?, ?, ?, ?, ? )";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
-            pst.setInt(1, evento.getIdEvento());
-            pst.setString(2, evento.getNomeEvento());
-            pst.setDate(3, new java.sql.Date(evento.getDataEvento().getTime()));
-            pst.setString(4, evento.getHorarioEvento());
-            pst.setDouble(5, evento.getValorMasc());
-            pst.setDouble(6, evento.getValorFem());
+            
+            pst.setString(1, evento.getNomeEvento());
+            pst.setDate(2, new java.sql.Date(evento.getDataEvento().getTime()));
+            pst.setString(3, evento.getHorarioEvento());
+            pst.setDouble(4, evento.getValorMasc());
+            pst.setDouble(5, evento.getValorFem());
             pst.execute();
             con.closeConnection();
         } catch (SQLException ex) {
@@ -87,7 +87,7 @@ public class EventoDao {
             
             st.setInt(1, evento.getIdEvento());
             
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery();
             while( rs.next() ){
                 Evento e = new Evento();
                 e.setIdEvento(rs.getInt("IDEVENTO"));
@@ -111,12 +111,12 @@ public class EventoDao {
     public ArrayList<Evento> listarEventoNome(Evento evento){
         this.listaEvento = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
-            String query = "SELECT * FROM EVENTO WHERE NOMEEVENTO LIKE '%?%'";
+            String query = "SELECT * FROM EVENTO WHERE NOMEEVENTO LIKE ?";
             PreparedStatement st = con.getConnection().prepareStatement(query);
             
-            st.setString(1, evento.getNomeEvento());
+            st.setString(1, "%"+evento.getNomeEvento()+"%");
             
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery();
             while( rs.next() ){
                 Evento e = new Evento();
                 e.setIdEvento(rs.getInt("IDEVENTO"));
@@ -140,13 +140,13 @@ public class EventoDao {
     public ArrayList<Evento> listarEventoIntervaloData(Date evento1, Date evento2){
         this.listaEvento = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
-            String query = "SELECT * FROM EVENTO WHERE EVENTODATA BETWEEN '?' AND '?'";
+            String query = "SELECT * FROM EVENTO WHERE DATAEVENTO BETWEEN ? AND ?";
             PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setDate(1, evento1);
             st.setDate(2, evento2);
             
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery();
             while( rs.next() ){
                 Evento e = new Evento();
                 e.setIdEvento(rs.getInt("IDEVENTO"));
@@ -193,11 +193,11 @@ public class EventoDao {
     
     public void remover(Evento evento) throws Exception{
        try {
-             String query = "DELETE FROM EVENTO WHERE IDEVENTO=?";
+             String query = "DELETE FROM EVENTO WHERE IDEVENTO= ?";
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setInt(1,evento.getIdEvento());
-            st.executeQuery(query);
+            st.executeUpdate();
              
            
             con.closeConnection();
