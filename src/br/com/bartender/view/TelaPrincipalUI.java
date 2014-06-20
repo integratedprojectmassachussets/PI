@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +22,26 @@ import javax.swing.JPanel;
 public class TelaPrincipalUI extends javax.swing.JFrame {
 
         private ArrayList<Consumo> listaConsumoTemp = new ArrayList<Consumo>();
+        private static TelaPrincipalUI instanciaTela;
+    
+    /*SINGLETON*/
+    public static TelaPrincipalUI obterInstancia(){
+        if ( instanciaTela == null ){
+            instanciaTela = new TelaPrincipalUI();
+        }
+        return instanciaTela;
+    }
+
+    public JDesktopPane getPainelPrincipal(){
+        return obterInstancia().getPainelPrincipal();    
+    }
+    public void inicializarTipo(){
+        ManutencaoTipoUI manutencaoTipo = new ManutencaoTipoUI();
+        jdpPainelTelas.removeAll();
+        jdpPainelTelas.updateUI();
+        jdpPainelTelas.add(manutencaoTipo);
+        manutencaoTipo.setVisible(true);      
+        }
     /**
      * Creates new form TelaPrincipalUI
      */
@@ -81,10 +102,9 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 700));
 
         jdpPainelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
-        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(0));
         jdpPainelPrincipal.setForeground(new java.awt.Color(255, 0, 153));
         jdpPainelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 700));
 
@@ -334,22 +354,20 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(38, 38, 38)
+                .addComponent(jlNomeEvento)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jlNomeEvento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                        .addComponent(jlDataEvento))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8)))
-                .addGap(31, 31, 31)
-                .addComponent(jlHorarioEvento)
-                .addGap(33, 33, 33))
+                        .addComponent(jlDataEvento)
+                        .addGap(28, 28, 28)
+                        .addComponent(jlHorarioEvento))
+                    .addComponent(jLabel8))
+                .addGap(33, 45, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addGap(88, 88, 88))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,7 +426,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                         .addGap(22, 22, 22))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addComponent(jdpPainelTelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(40, Short.MAX_VALUE))))
+                        .addContainerGap(36, Short.MAX_VALUE))))
         );
         jdpPainelPrincipalLayout.setVerticalGroup(
             jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -422,7 +440,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 17, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -495,8 +513,11 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
 
     private void jtfBotaoRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoRelatorioActionPerformed
         // TODO add your handling code here:
-        /*RelatorioUI relatorioUI = new RelatorioUI();
-        relatorioUI.setVisible(true);*/
+        RelatorioUI relatorioUI = new RelatorioUI();
+        jdpPainelTelas.removeAll();
+        jdpPainelTelas.updateUI();
+        jdpPainelTelas.add(relatorioUI);
+        relatorioUI.setVisible(true);
     }//GEN-LAST:event_jtfBotaoRelatorioActionPerformed
 
     private void jtfBotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBotaoSairActionPerformed
