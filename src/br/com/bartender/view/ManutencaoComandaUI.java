@@ -4,6 +4,11 @@
  */
 package br.com.bartender.view;
 
+import br.com.bartender.controller.ComandaController;
+import br.com.bartender.model.Comanda;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author eduardo
@@ -35,40 +40,39 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        jtfComandaInserirId = new javax.swing.JTextField();
+        jtfComandaInserirNome = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jtfComandaInserirTelefone = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jtfEventoLimparEdicao2 = new javax.swing.JButton();
-        jtfEventoLimparEdicao3 = new javax.swing.JButton();
+        jrbComandaInserirMasc = new javax.swing.JRadioButton();
+        jrbComandaInserirFem = new javax.swing.JRadioButton();
+        jbEventoSalvar = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        jbComandaBuscar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
+        jtListaConsumoComanda = new javax.swing.JTable();
+        jbComandaExcluirConsumo = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jlComandaMostrarValorConsumido = new javax.swing.JLabel();
+        jlComandaMostrarValorTotal = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        jlComandaMostrarValorEntrada = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
-        jButton8 = new javax.swing.JButton();
+        jbComandaRegistrarPagamento = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jtfComandaBuscarId = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jtfComandaBuscarNome = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
@@ -94,9 +98,9 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("Nome:");
 
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        jtfComandaInserirNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                jtfComandaInserirNomeActionPerformed(evt);
             }
         });
 
@@ -106,30 +110,22 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Sexo:");
 
-        GrupoBotaoSexo.add(jRadioButton7);
-        jRadioButton7.setText("Masculino");
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        GrupoBotaoSexo.add(jrbComandaInserirMasc);
+        jrbComandaInserirMasc.setText("Masculino");
+        jrbComandaInserirMasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                jrbComandaInserirMascActionPerformed(evt);
             }
         });
 
-        GrupoBotaoSexo.add(jRadioButton8);
-        jRadioButton8.setText("Feminino");
+        GrupoBotaoSexo.add(jrbComandaInserirFem);
+        jrbComandaInserirFem.setText("Feminino");
 
-        jtfEventoLimparEdicao2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jtfEventoLimparEdicao2.setText("Limpar");
-        jtfEventoLimparEdicao2.addActionListener(new java.awt.event.ActionListener() {
+        jbEventoSalvar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jbEventoSalvar.setText("Salvar");
+        jbEventoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfEventoLimparEdicao2ActionPerformed(evt);
-            }
-        });
-
-        jtfEventoLimparEdicao3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jtfEventoLimparEdicao3.setText("Salvar");
-        jtfEventoLimparEdicao3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfEventoLimparEdicao3ActionPerformed(evt);
+                jbEventoSalvarActionPerformed(evt);
             }
         });
 
@@ -144,26 +140,24 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                    .addComponent(jTextField11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfComandaInserirId, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(jtfComandaInserirNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jRadioButton7)
+                        .addComponent(jrbComandaInserirMasc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton8))
-                    .addComponent(jTextField12))
+                        .addComponent(jrbComandaInserirFem))
+                    .addComponent(jtfComandaInserirTelefone))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(jbEventoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(203, Short.MAX_VALUE)
-                .addComponent(jtfEventoLimparEdicao3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jtfEventoLimparEdicao2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,21 +165,18 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfComandaInserirId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfComandaInserirTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfComandaInserirNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jRadioButton7)
-                    .addComponent(jRadioButton8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfEventoLimparEdicao2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfEventoLimparEdicao3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jrbComandaInserirMasc)
+                    .addComponent(jrbComandaInserirFem))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jbEventoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -202,15 +193,18 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cadastrar", jPanel6);
 
-        jPanel8.setBorder(null);
-
-        jButton5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton5.setText("Buscar");
+        jbComandaBuscar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jbComandaBuscar.setText("Buscar");
+        jbComandaBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbComandaBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -218,20 +212,20 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbComandaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(jbComandaBuscar)
                 .addGap(52, 52, 52))
         );
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consumo", 0, 0, new java.awt.Font("Ubuntu", 1, 14))); // NOI18N
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jtListaConsumoComanda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -251,9 +245,14 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(jtListaConsumoComanda);
 
-        jButton7.setText("Excluir");
+        jbComandaExcluirConsumo.setText("Excluir");
+        jbComandaExcluirConsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbComandaExcluirConsumoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -265,7 +264,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane3)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbComandaExcluirConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -274,7 +273,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbComandaExcluirConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -286,14 +285,14 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel4.setText("Total a Pagar:");
 
-        jLabel6.setText("xxx");
+        jlComandaMostrarValorConsumido.setText("xxx");
 
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel7.setText("xxx");
+        jlComandaMostrarValorTotal.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jlComandaMostrarValorTotal.setText("xxx");
 
         jLabel8.setText("Valor de Entrada:");
 
-        jLabel16.setText("xxx");
+        jlComandaMostrarValorEntrada.setText("xxx");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -305,31 +304,31 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel16))
+                        .addComponent(jlComandaMostrarValorEntrada))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                            .addComponent(jlComandaMostrarValorConsumido)
+                            .addComponent(jlComandaMostrarValorTotal))))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlComandaMostrarValorEntrada, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addComponent(jlComandaMostrarValorConsumido)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
+                    .addComponent(jlComandaMostrarValorTotal)
                     .addComponent(jLabel4))
                 .addGap(14, 14, 14))
         );
@@ -342,8 +341,8 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         GrupoBotaoStatusComanda.add(jRadioButton6);
         jRadioButton6.setText("Fechada");
 
-        jButton8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton8.setText("Registrar Pagamento");
+        jbComandaRegistrarPagamento.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jbComandaRegistrarPagamento.setText("Registrar Pagamento");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -353,7 +352,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
+                        .addComponent(jbComandaRegistrarPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 164, Short.MAX_VALUE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioButton5)
@@ -369,7 +368,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                     .addComponent(jRadioButton5)
                     .addComponent(jRadioButton6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbComandaRegistrarPagamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
@@ -378,9 +377,9 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("ID:");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        jtfComandaBuscarId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                jtfComandaBuscarIdActionPerformed(evt);
             }
         });
 
@@ -392,17 +391,17 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addGap(147, 147, 147)
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addComponent(jtfComandaBuscarId, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfComandaBuscarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Por ID", jPanel1);
@@ -410,9 +409,9 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Nome:");
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        jtfComandaBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                jtfComandaBuscarNomeActionPerformed(evt);
             }
         });
 
@@ -424,7 +423,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addGap(52, 52, 52)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                .addComponent(jtfComandaBuscarNome, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                 .addGap(52, 52, 52))
         );
         jPanel2Layout.setVerticalGroup(
@@ -432,9 +431,9 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfComandaBuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Por Nome", jPanel2);
@@ -457,7 +456,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,7 +465,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Por Telefone", jPanel3);
@@ -485,7 +484,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jTabbedPane2)
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -502,7 +501,7 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
 
@@ -522,12 +521,12 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(287, 287, 287)
                 .addComponent(jLabel1)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -538,50 +537,73 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void jtfComandaInserirNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfComandaInserirNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_jtfComandaInserirNomeActionPerformed
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+    private void jrbComandaInserirMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbComandaInserirMascActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    }//GEN-LAST:event_jrbComandaInserirMascActionPerformed
 
-    private void jtfEventoLimparEdicao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoLimparEdicao2ActionPerformed
+    private void jbEventoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEventoSalvarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtfEventoLimparEdicao2ActionPerformed
+        
+        Comanda comanda = new Comanda();
+        
+        /*
+         * Precisa aqui de algum método da Dao pra buscar o evento vigente e anexar na comanda
+         */
+        try{
+        comanda.setIdComanda(Integer.parseInt(jtfComandaInserirId.getText()));
+        comanda.setNomeClienteComanda(jtfComandaInserirNome.getText());
+        comanda.setTelefoneClienteComanda(jtfComandaInserirTelefone.getText());
+        comanda.setSituacaoComanda("A");
+        
+        /*
+         * Precisa também verificar como fazer um if pro radiobutton do sexo 
+         */
+        
+        ComandaController.obterInstancia().Cadastrar(comanda);
+        }catch (Exception e){
+            Logger.getLogger(ManutencaoEventoUI.class.getName());
+            JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+            }
+        
+    }//GEN-LAST:event_jbEventoSalvarActionPerformed
 
-    private void jtfEventoLimparEdicao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEventoLimparEdicao3ActionPerformed
+    private void jtfComandaBuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfComandaBuscarNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtfEventoLimparEdicao3ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_jtfComandaBuscarNomeActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void jtfComandaBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfComandaBuscarIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_jtfComandaBuscarIdActionPerformed
+
+    private void jbComandaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbComandaBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbComandaBuscarActionPerformed
+
+    private void jbComandaExcluirConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbComandaExcluirConsumoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbComandaExcluirConsumoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GrupoBotaoSexo;
     private javax.swing.ButtonGroup GrupoBotaoStatusComanda;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -589,11 +611,8 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -609,20 +628,25 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JButton jtfEventoLimparEdicao2;
-    private javax.swing.JButton jtfEventoLimparEdicao3;
+    private javax.swing.JButton jbComandaBuscar;
+    private javax.swing.JButton jbComandaExcluirConsumo;
+    private javax.swing.JButton jbComandaRegistrarPagamento;
+    private javax.swing.JButton jbEventoSalvar;
+    private javax.swing.JLabel jlComandaMostrarValorConsumido;
+    private javax.swing.JLabel jlComandaMostrarValorEntrada;
+    private javax.swing.JLabel jlComandaMostrarValorTotal;
+    private javax.swing.JRadioButton jrbComandaInserirFem;
+    private javax.swing.JRadioButton jrbComandaInserirMasc;
+    private javax.swing.JTable jtListaConsumoComanda;
+    private javax.swing.JTextField jtfComandaBuscarId;
+    private javax.swing.JTextField jtfComandaBuscarNome;
+    private javax.swing.JTextField jtfComandaInserirId;
+    private javax.swing.JTextField jtfComandaInserirNome;
+    private javax.swing.JTextField jtfComandaInserirTelefone;
     // End of variables declaration//GEN-END:variables
 }
