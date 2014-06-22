@@ -36,11 +36,12 @@ public class ProdutoDao {
     
     public void inserir(Produto produto){
         try {
-            String query = "INSERT INTO PRODUTO ( NOMEPRODUTO, VALORPRODUTO ) VALUES ( ?, ?)";
+            String query = "INSERT INTO PRODUTO ( NOMEPRODUTO, VALORPRODUTO, TIPOPRODUTO ) VALUES ( ?, ?, ?)";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
             pst.setString(1, produto.getNomeProduto());
             pst.setDouble(2, produto.getValorProduto());
-            pst.execute();
+           /* pst.setTipoProduto(3, produto.getTipoProduto());*/
+            pst.executeUpdate();
             con.closeConnection();
         } catch (SQLException ex) {
             ex.printStackTrace();

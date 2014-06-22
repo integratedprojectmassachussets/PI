@@ -35,10 +35,9 @@ public class TipoDao {
     
     public void inserir(Tipo tipo){
         try {
-            String query = "INSERT INTO TIPO ( IDTIPO, NOMETIPO ) VALUES ( ?, ?)";
+            String query = "INSERT INTO TIPO (NOMETIPO) VALUES (?)";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
-            pst.setInt(1, tipo.getIdTipo());
-            pst.setString(2, tipo.getNomeTipo());
+            pst.setString(1, tipo.getNomeTipo());
             pst.execute();
             con.closeConnection();
         } catch (SQLException ex) {
@@ -75,7 +74,7 @@ public class TipoDao {
             PreparedStatement st = con.getConnection().prepareStatement(query);
             st.setString(1, nome);
             
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery();
             
                 
                 tipo.setIdTipo(rs.getInt("IDTIPO"));
@@ -98,7 +97,7 @@ public class TipoDao {
              PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setInt(1, tipo.getIdTipo());
-            st.executeQuery(query);
+            st.executeUpdate();
              
            
             con.closeConnection();

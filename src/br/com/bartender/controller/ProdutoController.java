@@ -21,9 +21,7 @@ public class ProdutoController {
     
     public void Cadastrar(Produto produto) throws Exception{
         
-        if (produto.getIdProduto().equals("") ){
-            throw new Exception("Id inválido.");
-        }
+
         if (produto.getNomeProduto().isEmpty() ){
             throw new Exception("Favor inserir o nome do produto.");
         }        

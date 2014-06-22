@@ -35,13 +35,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     public JDesktopPane getPainelPrincipal(){
         return obterInstancia().getPainelPrincipal();    
     }
-    public void inicializarTipo(){
-        ManutencaoTipoUI manutencaoTipo = new ManutencaoTipoUI();
-        jdpPainelTelas.removeAll();
-        jdpPainelTelas.updateUI();
-        jdpPainelTelas.add(manutencaoTipo);
-        manutencaoTipo.setVisible(true);      
-        }
+    
     /**
      * Creates new form TelaPrincipalUI
      */

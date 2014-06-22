@@ -24,12 +24,8 @@ public class TipoController {
     
     public void Cadastrar(Tipo tipo) throws Exception{
         
-        if (tipo.getIdTipo().equals("") ){
-            throw new Exception("Favor inserir o código identificador do tipo de produto.");
-        }
-
         if ( tipo.getNomeTipo().isEmpty() ){
-            throw new Exception("Favor inserir onome do tipo de produto.");
+            throw new Exception("Favor inserir o nome do tipo de produto.");
         }
   
         TipoDao.obterInstancia().inserir(tipo);
