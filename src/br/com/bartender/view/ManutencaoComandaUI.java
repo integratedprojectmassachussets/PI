@@ -5,9 +5,13 @@
 package br.com.bartender.view;
 
 import br.com.bartender.controller.ComandaController;
+import br.com.bartender.controller.ConsumoController;
 import br.com.bartender.model.Comanda;
+import br.com.bartender.model.Consumo;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,11 +19,27 @@ import javax.swing.JOptionPane;
  */
 public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
 
+    
+    private ArrayList<Consumo> listaConsumoComanda = new ArrayList<>();
+    Comanda comandaInstanciada = new Comanda();
+    
     /**
      * Creates new form ManutencaoComandaUI
      */
     public ManutencaoComandaUI() {
         initComponents();
+    }
+    
+    public void tabelaConsumoComanda() {
+        DefaultTableModel tabelaConsumoComanda = new DefaultTableModel();
+        tabelaConsumoComanda.setColumnIdentifiers(new String[]{"Produto", "Valor Unitário", "Quantidade", "Valor Total"});
+        for (int i=0; i < this.listaConsumoComanda.size(); i++){
+            tabelaConsumoComanda.addRow(new Object[]{this.listaConsumoComanda.get(i).getProdutoInserido().getNomeProduto(),
+            this.listaConsumoComanda.get(i).getProdutoInserido().getValorProduto(),
+            this.listaConsumoComanda.get(i).getQuantidadeProduto(),
+            this.listaConsumoComanda.get(i).getValorTotal()});
+        }
+        jtListaConsumoComanda.setModel(tabelaConsumoComanda);
     }
 
     /**
@@ -595,6 +615,24 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
 
     private void jbComandaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbComandaBuscarActionPerformed
         // TODO add your handling code here:
+        
+        this.listaConsumoComanda.clear();
+        ((DefaultTableModel) jtListaConsumoComanda.getModel()).setNumRows(0);
+        this.jtListaConsumoComanda.updateUI();
+        
+        
+        
+        this.comandaInstanciada.setIdComanda(Integer.parseInt(jtfComandaBuscarId.getText()));
+        
+        try{
+        this.comandaInstanciada = ComandaController.obterInstancia().listarComandaId(comandaInstanciada);
+        this.listaConsumoComanda = ConsumoController.obterInstancia().listarConsumoComanda(this.comandaInstanciada.getIdComanda());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
+        }
+        tabelaConsumoComanda();
+        
+        
     }//GEN-LAST:event_jbComandaBuscarActionPerformed
 
     private void jbComandaExcluirConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbComandaExcluirConsumoActionPerformed

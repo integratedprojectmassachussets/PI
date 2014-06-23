@@ -76,7 +76,6 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jtfIdComanda = new javax.swing.JTextField();
-        jbBuscarComanda = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtListaConsumoTemp = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -98,7 +97,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jdpPainelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
-        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        jdpPainelPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jdpPainelPrincipal.setForeground(new java.awt.Color(255, 0, 153));
         jdpPainelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 700));
 
@@ -187,13 +186,6 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
             }
         });
 
-        jbBuscarComanda.setText("Buscar");
-        jbBuscarComanda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBuscarComandaActionPerformed(evt);
-            }
-        });
-
         jtListaConsumoTemp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -267,13 +259,8 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jtfIdProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                                     .addComponent(jtfIdComanda))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(jLabel6))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jbBuscarComanda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
                                 .addComponent(jtfQuantidadeConsumo)
                                 .addGap(18, 18, 18)
@@ -299,9 +286,8 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfIdComanda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscarComanda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                    .addComponent(jtfIdComanda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfQuantidadeConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -420,7 +406,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                         .addGap(22, 22, 22))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
                         .addComponent(jdpPainelTelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(36, Short.MAX_VALUE))))
+                        .addContainerGap(40, Short.MAX_VALUE))))
         );
         jdpPainelPrincipalLayout.setVerticalGroup(
             jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,7 +420,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jdpPainelPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 18, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jdpPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -523,10 +509,6 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfIdComandaActionPerformed
 
-    private void jbBuscarComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarComandaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbBuscarComandaActionPerformed
-
     private void jtListaConsumoTempComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jtListaConsumoTempComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jtListaConsumoTempComponentAdded
@@ -542,14 +524,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         comandaRelacionada.setIdComanda(Integer.parseInt(jtfIdComanda.getText()));
         produtoInserido.setIdProduto(Integer.parseInt(jtfIdProduto.getText()));
 
-        /*
-        * Trecho pra testar sem o banco
-        */
-        produtoInserido.setNomeProduto("Coca-Cola");
-        produtoInserido.setValorProduto(5D);
-        /*
-        * Fim do trecho
-        */
+        
 
         consumo.setComandaRelacionada(comandaRelacionada);
         consumo.setProdutoInserido(produtoInserido);
@@ -558,15 +533,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         this.listaConsumoTemp.add(consumo);
         atualizarTabelaConsumo();
 
-        /*
-        jtListaConsumoTemp.setValueAt(consumo.getProdutoInserido().getNomeProduto(), 0, 0);
-        jtListaConsumoTemp.setValueAt(consumo.getProdutoInserido().getValorProduto(), 0, 1);
-        jtListaConsumoTemp.setValueAt(consumo.getQuantidadeProduto(),0, 2);
-
-        valorTotal = consumo.getQuantidadeProduto() * consumo.getProdutoInserido().getValorProduto();
-
-        jtListaConsumoTemp.setValueAt(valorTotal, 0, 3);
-        */
+        
     }//GEN-LAST:event_jbAdicionarConsumoActionPerformed
 
     private void jbCadastrarConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarConsumoActionPerformed
@@ -648,7 +615,6 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAdicionarConsumo;
-    private javax.swing.JButton jbBuscarComanda;
     private javax.swing.JButton jbCadastrarConsumo;
     private javax.swing.JButton jbLimparConsumo;
     private javax.swing.JPanel jdpPainelPrincipal;

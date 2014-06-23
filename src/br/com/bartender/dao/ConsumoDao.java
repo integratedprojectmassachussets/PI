@@ -47,12 +47,12 @@ public class ConsumoDao {
         }
     }
     
-    public ArrayList<Consumo> listarConsumoComanda(Consumo consumo){
+    public ArrayList<Consumo> listarConsumoComanda(Integer idComanda){
         this.listaConsumo = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
             String query = "SELECT P.IDPRODUTO, P.NOMEPRODUTO, P.VALORPRODUTO, C.QUANTIDADEPRODUTO FROM CONSUMO C JOIN PRODUTO P ON C.PRODUTOIDPRODUTO = P.IDPRODUTO WHERE IDCOMANDA=?";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
-            pst.setInt(1, consumo.getComandaRelacionada().getIdComanda());
+            pst.setInt(1, idComanda);
             ResultSet rs = pst.executeQuery(query);
             while( rs.next() ){
                 Consumo c = new Consumo();

@@ -3,6 +3,7 @@ package br.com.bartender.dao;
 
 import java.util.ArrayList;
 import br.com.bartender.model.Comanda;
+import br.com.bartender.model.Consumo;
 import br.com.bartender.model.Evento;
 import br.com.bartender.util.ConnectionUtil;
 import java.sql.PreparedStatement;
@@ -18,6 +19,7 @@ import java.sql.Statement;
 public class ComandaDao {
     
     private ArrayList<Comanda> listaComanda;
+    private ArrayList<Consumo> listaConsumo;
     private static ComandaDao instanciaRep;
     private ConnectionUtil con;
         
@@ -72,7 +74,9 @@ public class ComandaDao {
                 e.setIdEvento(rs.getInt("EVENTO_IDEVENTO"));
                 e.setNomeEvento(rs.getString("NOMEEVENTO"));
                 e.setDataEvento(rs.getDate("DATAEVENTO"));
-                
+                e.setHorarioEvento(rs.getString("HORARIOEVENTO"));
+                e.setValorMasc(rs.getDouble("VALORMASC"));
+                e.setValorFem(rs.getDouble("VALORFEM"));
                 
                 c.setEventoVigente(e);
                 
@@ -84,6 +88,42 @@ public class ComandaDao {
         }
         
         return this.listaComanda;
+    }
+    
+    public Comanda listarComandaId(Comanda comanda){
+        this.listaConsumo = new ArrayList<>(); /*Para não duplicar a lista*/
+        try {
+            String query = "SELECT * FROM COMANDA C JOIN EVENTO E ON C.EVENTO_IDEVENTO = E.IDEVENTO WHERE IDCOMANDA=?";
+            PreparedStatement st = con.getConnection().prepareStatement(query);
+            
+            st.setInt(1, comanda.getIdComanda());
+            
+            ResultSet rs = st.executeQuery();
+            while( rs.next() ){
+                
+                Evento e = new Evento();
+
+                comanda.setIdComanda(rs.getInt("IDEVENTO"));
+                comanda.setNomeClienteComanda(rs.getString("NOMECLIENTECOMANDA"));
+                comanda.setSexoClienteComanda(rs.getString("SEXOCLIENTECOMANDA"));
+                comanda.setSituacaoComanda(rs.getString("SITUACAOCOMANDA"));
+                comanda.setTelefoneClienteComanda(rs.getString("TELEFONECLIENTECOMANDA"));
+                
+                e.setIdEvento(rs.getInt("EVENTO_IDEVENTO"));
+                e.setNomeEvento(rs.getString("NOMEEVENTO"));
+                e.setDataEvento(rs.getDate("DATAEVENTO"));
+                e.setHorarioEvento(rs.getString("HORARIOEVENTO"));
+                e.setValorMasc(rs.getDouble("VALORMASC"));
+                e.setValorFem(rs.getDouble("VALORFEM"));
+                
+                comanda.setEventoVigente(e);
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return comanda;
     }
     
     public void alterar(Comanda comanda){

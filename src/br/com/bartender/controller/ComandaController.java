@@ -1,5 +1,6 @@
 package br.com.bartender.controller;
 
+import br.com.bartender.dao.ComandaDao;
 import br.com.bartender.model.Comanda;
 import java.util.ArrayList;
 
@@ -37,6 +38,14 @@ public class ComandaController {
     
     public ArrayList<Comanda> listarTodos(){
         return ComandaController.obterInstancia().listarTodos();
+    }
+    
+    public Comanda listarComandaId(Comanda comanda) throws Exception {
+        if(comanda.getIdComanda().equals("")){
+            throw new Exception("ID inválido");
+        }
+        
+        return ComandaDao.obterInstancia().listarComandaId(comanda);
     }
     
     public void Editar(Comanda comanda) throws Exception{

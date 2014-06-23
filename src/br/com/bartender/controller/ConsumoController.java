@@ -41,4 +41,13 @@ public class ConsumoController {
         ConsumoDao.obterInstancia().inserir(consumo);
     }
     
+    public ArrayList<Consumo> listarConsumoComanda(Integer idComanda) throws Exception{
+        
+        if(idComanda.equals("")){
+            throw new Exception("ID inválido");
+        }
+        
+        return ConsumoDao.obterInstancia().listarConsumoComanda(idComanda);
+    }
+    
 }
