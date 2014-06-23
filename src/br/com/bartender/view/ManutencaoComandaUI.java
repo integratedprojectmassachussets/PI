@@ -587,11 +587,14 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         comanda.setIdComanda(Integer.parseInt(jtfComandaInserirId.getText()));
         comanda.setNomeClienteComanda(jtfComandaInserirNome.getText());
         comanda.setTelefoneClienteComanda(jtfComandaInserirTelefone.getText());
-        comanda.setSituacaoComanda("A");
         
-        /*
-         * Precisa também verificar como fazer um if pro radiobutton do sexo 
-         */
+        if (jrbComandaInserirMasc.isSelected()){
+            comanda.setSexoClienteComanda("M");
+        } else{
+            comanda.setSexoClienteComanda("F");
+        }
+            
+        
         
         ComandaController.obterInstancia().Cadastrar(comanda);
         }catch (Exception e){

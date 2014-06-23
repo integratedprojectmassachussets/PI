@@ -33,7 +33,7 @@ public class ComandaController {
         if ( comanda.getSexoClienteComanda().isEmpty() ){
             throw new Exception("Sexo inválido.");
         }
-        ComandaController.obterInstancia().Cadastrar(comanda);
+        ComandaDao.obterInstancia().inserir(comanda);
     }
     
     public ArrayList<Comanda> listarTodos(){

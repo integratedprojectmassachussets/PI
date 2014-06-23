@@ -106,12 +106,6 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jcBuscarTipo = new javax.swing.JComboBox();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jtfBuscarPrecoDe = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jtfBuscarPrecoAte = new javax.swing.JFormattedTextField();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -153,8 +147,6 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaProduto);
 
-        jPanel2.setBorder(null);
-
         jbBuscarProduto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jbBuscarProduto.setText("Buscar");
         jbBuscarProduto.setPreferredSize(new java.awt.Dimension(60, 27));
@@ -194,7 +186,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar/Editar Produto", 0, 0, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(1, 1, 1))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar/Editar Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(1, 1, 1))); // NOI18N
 
         jLabel10.setText("Nome:");
 
@@ -281,9 +273,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Produto", 0, 0, new java.awt.Font("Ubuntu", 1, 14))); // NOI18N
-
-        jPanel1.setBorder(null);
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 14))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel2.setText("ID:");
@@ -303,7 +293,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfBuscarIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,7 +302,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtfBuscarIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Por ID", jPanel1);
@@ -332,7 +322,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addContainerGap(141, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfBuscarNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -345,7 +335,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfBuscarNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Por Nome", jPanel4);
@@ -373,67 +363,16 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jcBuscarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Por Tipo", jPanel5);
-
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel5.setText("Preço Unitário:");
-
-        jLabel7.setText("De");
-
-        jtfBuscarPrecoDe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfBuscarPrecoDeActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("até");
-
-        jtfBuscarPrecoAte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfBuscarPrecoAteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addGap(5, 5, 5)
-                .addComponent(jtfBuscarPrecoDe, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfBuscarPrecoAte, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jtfBuscarPrecoDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jtfBuscarPrecoAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Por Valor Unitário", jPanel6);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
+            .addGap(0, 645, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addContainerGap()
@@ -451,7 +390,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
             .addGap(0, 488, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                    .addContainerGap(13, Short.MAX_VALUE)
+                    .addContainerGap(29, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel7Layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -509,7 +448,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar Tipo", 0, 0, new java.awt.Font("Ubuntu", 1, 14))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar Tipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 14))); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel13.setText("Nome:");
@@ -553,7 +492,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jbSalvarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -591,14 +530,14 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbSalvarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbExcluirTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -614,8 +553,8 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
             .addGroup(jdpProdutoUILayout.createSequentialGroup()
                 .addGap(287, 287, 287)
                 .addComponent(jLabel1)
-                .addContainerGap(292, Short.MAX_VALUE))
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jTabbedPane2)
         );
         jdpProdutoUILayout.setVerticalGroup(
             jdpProdutoUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -650,14 +589,6 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
     private void jtfBuscarNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBuscarNomeProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfBuscarNomeProdutoActionPerformed
-
-    private void jtfBuscarPrecoDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBuscarPrecoDeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfBuscarPrecoDeActionPerformed
-
-    private void jtfBuscarPrecoAteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBuscarPrecoAteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfBuscarPrecoAteActionPerformed
 
     private void jtfCadastrarPrecoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCadastrarPrecoProdutoActionPerformed
         // TODO add your handling code here:
@@ -770,22 +701,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
             catch (Exception e){
                 JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
             }
-        } else if (!jtfBuscarPrecoDe.getText().equals("") && jtfBuscarPrecoAte.getText().equals("")) {
-            try{
-                
-                Double preco1;
-                Double preco2;
-                
-                preco1 = Double.parseDouble(jtfBuscarPrecoDe.getText());
-                preco2 = Double.parseDouble(jtfBuscarPrecoAte.getText());
-                this.listaProduto = ProdutoController.obterInstancia().ListarProdutoIntervaloPreco(preco1, preco2);
-                
-                tabelaProduto();
-                
-            }
-            catch (Exception e){
-                JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
-            }
+        
         }else  {
             try{
                 
@@ -854,9 +770,6 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -864,7 +777,6 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -887,8 +799,6 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtListaTipo;
     private javax.swing.JTextField jtfBuscarIdProduto;
     private javax.swing.JTextField jtfBuscarNomeProduto;
-    private javax.swing.JFormattedTextField jtfBuscarPrecoAte;
-    private javax.swing.JFormattedTextField jtfBuscarPrecoDe;
     private javax.swing.JTextField jtfCadastrarNomeProduto;
     private javax.swing.JTextField jtfCadastrarPrecoProduto;
     private javax.swing.JTextField jtfTipoNome;

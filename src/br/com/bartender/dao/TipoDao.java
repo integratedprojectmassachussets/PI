@@ -75,13 +75,13 @@ public class TipoDao {
             st.setString(1, nome);
             
             ResultSet rs = st.executeQuery();
-            
+            if ( rs.next() ){
                 
                 tipo.setIdTipo(rs.getInt("IDTIPO"));
                 tipo.setNomeTipo(rs.getString("NOMETIPO"));
                 
                 
-            
+            }
             con.closeConnection();
         } catch (SQLException ex) {
             ex.printStackTrace();

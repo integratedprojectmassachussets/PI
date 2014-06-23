@@ -40,7 +40,7 @@ public class ProdutoDao {
             PreparedStatement pst = con.getConnection().prepareStatement(query);
             pst.setString(1, produto.getNomeProduto());
             pst.setDouble(2, produto.getValorProduto());
-           /* pst.setTipoProduto(3, produto.getTipoProduto());*/
+            pst.setInt(3, produto.getTipoProduto().getIdTipo());
             pst.executeUpdate();
             con.closeConnection();
         } catch (SQLException ex) {
@@ -52,13 +52,20 @@ public class ProdutoDao {
         this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
             Statement st = con.getConnection().createStatement();
-            String query = "SELECT * FROM PRODUTO";
+            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.TIPOPRODUTO = T.IDTIPO";
             ResultSet rs = st.executeQuery(query);
             while( rs.next() ){
                 Produto p = new Produto();
+                
+                Tipo t = new Tipo();
+                t.setIdTipo(rs.getInt("IDTIPO"));
+                t.setNomeTipo(rs.getString("NOMETIPO"));
+                
                 p.setNomeProduto(rs.getString("NOMEPRODUTO"));
                 p.setValorProduto(rs.getDouble("VALORPRODUTO"));
                 p.setIdProduto(rs.getInt("IDPRODUTO"));
+                
+                p.setTipoProduto(t);
                 
                 this.listaProduto.add( p );
             }
@@ -91,7 +98,7 @@ public class ProdutoDao {
     public ArrayList<Produto> listarProdutoId(Produto produto){
         this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
-            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.PRODUTO_IDTIPO = T.IDTIPO WHERE IDPRODUTO=?";
+            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.TIPOPRODUTO = T.IDTIPO WHERE IDPRODUTO=?";
             PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setInt(1, produto.getIdProduto());
@@ -124,7 +131,7 @@ public class ProdutoDao {
     public ArrayList<Produto> listarProdutoNome(Produto produto){
         this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
-            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.PRODUTO_IDTIPO = T.IDTIPO WHERE NOMEPRODUTO LIKE ?";
+            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.TIPOPRODUTO = T.IDTIPO WHERE NOMEPRODUTO LIKE ?";
             PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setString(1, "%"+produto.getNomeProduto()+"%");
@@ -154,44 +161,12 @@ public class ProdutoDao {
         return this.listaProduto;
     }
     
-    public ArrayList<Produto> listarProdutoIntervaloPreco(Double preco1, Double preco2){
-        this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
-        try {
-            String query = "SELECT * FROM PRODUTO P JOIN TIPO T ON P.PRODUTO_IDTIPO = T.IDTIPO WHERE VALORPRODUTO BETWEEN ? AND ?";
-            PreparedStatement st = con.getConnection().prepareStatement(query);
-            
-            st.setDouble(1, preco1);
-            st.setDouble(2, preco2);
-            
-            ResultSet rs = st.executeQuery();
-            while( rs.next() ){
-                Produto p = new Produto();
-                Tipo t = new Tipo();
-                
-                
-                t.setIdTipo(rs.getInt("IDTIPO"));
-                t.setNomeTipo(rs.getString("NOMETIPO"));
-                
-                p.setIdProduto(rs.getInt("IDPRODUTO"));
-                p.setNomeProduto(rs.getString("NOMEPRODUTO"));
-                p.setValorProduto(rs.getDouble("VALORPRODUTO"));
-                p.setTipoProduto(t);
-                
-                
-                this.listaProduto.add( p );
-            }
-            con.closeConnection();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        
-        return this.listaProduto;
-    }
+    
     
     public ArrayList<Produto> listarProdutoTipo(String nome){
         this.listaProduto = new ArrayList<>(); /*Para não duplicar a lista*/
         try {
-            String query = "SELECT * FROM TIPO T JOIN PRODUTO P ON T.IDTIPO = P.PRODUTO_IDTIPO WHERE NOMETIPO = ?";
+            String query = "SELECT * FROM TIPO T JOIN PRODUTO P ON T.IDTIPO = P.TIPOPRODUTO WHERE NOMETIPO = ?";
             PreparedStatement st = con.getConnection().prepareStatement(query);
             
             st.setString(1, nome);

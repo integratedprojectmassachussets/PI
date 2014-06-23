@@ -93,16 +93,7 @@ public class ProdutoController {
        return ProdutoDao.obterInstancia().listarProdutoNome(produto);
     }
      
-      public ArrayList<Produto> ListarProdutoIntervaloPreco(Double preco1, Double preco2) throws Exception{
-        if(preco1.equals("")){
-            throw new Exception("Favor inserir o valor inicial.");
-        }
-        if(preco2.equals("")){
-            throw new Exception("Favor inserir o valor final.");
-        }
-        
-       return ProdutoDao.obterInstancia().listarProdutoIntervaloPreco(preco1, preco2);
-    }
+      
       
       public ArrayList<Produto> ListarProdutoTipo(String nome) throws Exception{
         if(nome.equals("")){
