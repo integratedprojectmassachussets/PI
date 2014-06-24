@@ -99,7 +99,7 @@ public class ComandaDao {
             st.setInt(1, comanda.getIdComanda());
             
             ResultSet rs = st.executeQuery();
-            while( rs.next() ){
+            if( rs.next() ){
                 
                 Evento e = new Evento();
 

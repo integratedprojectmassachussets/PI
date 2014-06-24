@@ -34,13 +34,13 @@ public class ConsumoDao {
     
     public void inserir(Consumo consumo){
         try {
-            String query = "INSERT INTO CONSUMO ( IDCONSUMO, QUANTIDADEPRODUTO, COMANDAID, PRODUTOID) VALUES ( ?, ?, ?, ?)";
+            String query = "INSERT INTO CONSUMO ( IDCONSUMO, QUANTIDADEPRODUTO, COMANDA_IDCOMANDA, PRODUTO_IDPRODUTO) VALUES ( ?, ?, ?, ?)";
             PreparedStatement pst = con.getConnection().prepareStatement(query);
             pst.setInt(1, consumo.getIdConsumo());
             pst.setInt(2, consumo.getQuantidadeProduto());
             pst.setInt(3, consumo.getComandaRelacionada().getIdComanda());
             pst.setInt(4, consumo.getProdutoInserido().getIdProduto());
-            pst.execute();
+            pst.executeUpdate();
             con.closeConnection();
         } catch (SQLException ex) {
             ex.printStackTrace();
