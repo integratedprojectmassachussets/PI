@@ -76,7 +76,7 @@ public class ProdutoController {
     }
     
     
-    public ArrayList<Produto> ListarProdutoId(Produto produto) throws Exception{
+    public Produto ListarProdutoId(Produto produto) throws Exception{
         if(produto.getIdProduto().equals("")){
             throw new Exception("ID inválido");
         }

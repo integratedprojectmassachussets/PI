@@ -6,6 +6,7 @@ package br.com.bartender.view;
 
 import br.com.bartender.controller.ComandaController;
 import br.com.bartender.controller.ConsumoController;
+import br.com.bartender.controller.ProdutoController;
 import br.com.bartender.model.Comanda;
 import br.com.bartender.model.Consumo;
 import br.com.bartender.model.Produto;
@@ -454,12 +455,14 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         comandaRelacionada.setIdComanda(Integer.parseInt(jtfIdComanda.getText()));
         try{
         comandaRelacionada = ComandaController.obterInstancia().listarComandaId(comandaRelacionada);
+        
+        
+        produtoInserido.setIdProduto(Integer.parseInt(jtfIdProduto.getText()));
+        produtoInserido = ProdutoController.obterInstancia().ListarProdutoId(produtoInserido);
+       
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");
         }
-        produtoInserido.setIdProduto(Integer.parseInt(jtfIdProduto.getText()));
-
-        
 
         consumo.setComandaRelacionada(comandaRelacionada);
         consumo.setProdutoInserido(produtoInserido);

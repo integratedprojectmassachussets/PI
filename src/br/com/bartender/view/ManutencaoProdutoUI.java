@@ -680,7 +680,7 @@ public class ManutencaoProdutoUI extends javax.swing.JInternalFrame {
                 Produto produto = new Produto();
                 
                 produto.setIdProduto(Integer.parseInt(jtfBuscarIdProduto.getText()));
-                this.listaProduto = ProdutoController.obterInstancia().ListarProdutoId(produto);
+                this.listaProduto.add(ProdutoController.obterInstancia().ListarProdutoId(produto));
                 
                 tabelaProduto();
                 
