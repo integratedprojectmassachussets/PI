@@ -6,6 +6,7 @@ package br.com.bartender.view;
 
 import br.com.bartender.controller.ComandaController;
 import br.com.bartender.controller.ConsumoController;
+import br.com.bartender.controller.EventoController;
 import br.com.bartender.model.Comanda;
 import br.com.bartender.model.Consumo;
 import java.util.ArrayList;
@@ -593,10 +594,19 @@ public class ManutencaoComandaUI extends javax.swing.JInternalFrame {
         } else{
             comanda.setSexoClienteComanda("F");
         }
+       
+        comanda.setEventoVigente(EventoController.obterInstancia().eventoVigente());
+        if (comanda.getSexoClienteComanda().equals("M")){
+            comanda.setValorEntradaComanda(comanda.getEventoVigente().getValorMasc());
+        }else{
+            comanda.setValorEntradaComanda(comanda.getEventoVigente().getValorFem());
+        }
             
+       ComandaController.obterInstancia().Cadastrar(comanda);
+       
         
         
-        ComandaController.obterInstancia().Cadastrar(comanda);
+        
         }catch (Exception e){
             Logger.getLogger(ManutencaoEventoUI.class.getName());
             JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados.");

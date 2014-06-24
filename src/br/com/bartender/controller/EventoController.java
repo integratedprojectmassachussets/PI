@@ -118,6 +118,12 @@ public class EventoController {
         
        return EventoDao.obterInstancia().listarEventoIntervaloData(new java.sql.Date(evento1.getTime()), new java.sql.Date(evento2.getTime()));
     }
+      
+      public Evento eventoVigente (){
+          
+          
+          return EventoDao.obterInstancia().eventoVigente();
+      }
     
     
     

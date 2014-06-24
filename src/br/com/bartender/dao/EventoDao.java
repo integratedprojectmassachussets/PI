@@ -167,6 +167,28 @@ public class EventoDao {
         return this.listaEvento;
     }
     
+    public Evento eventoVigente (){
+        Evento evento = new Evento();
+        
+        try {
+            Statement st = con.getConnection().createStatement();
+            String query = "SELECT * FROM EVENTO WHERE IDEVENTO = (SELECT MAX(IDEVENTO) FROM EVENTO)";
+            ResultSet rs = st.executeQuery(query);
+            if ( rs.next() ){
+                evento.setIdEvento(rs.getInt("IDEVENTO"));
+                evento.setNomeEvento(rs.getString("NOMEEVENTO"));
+                evento.setDataEvento(rs.getDate("DATAEVENTO"));
+                evento.setHorarioEvento(rs.getString("HORARIOEVENTO"));
+                evento.setValorMasc(rs.getDouble("VALORMASC"));
+                evento.setValorFem(rs.getDouble("VALORFEM"));       
+            }
+            con.closeConnection();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return evento;
+    }
     
     
     

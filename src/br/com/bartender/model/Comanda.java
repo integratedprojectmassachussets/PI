@@ -12,6 +12,7 @@ public class Comanda {
     private String telefoneClienteComanda;       
     private String situacaoComanda;
     private String tipoPagamentoComanda;
+    private Double valorEntradaComanda;
     private ArrayList<Consumo> consumoComanda;
     private Evento eventoVigente;
 
@@ -23,7 +24,13 @@ public class Comanda {
         this.eventoVigente = eventoVigente;
     }
 
-    
+     public Double getValorEntradaComanda() {
+        return valorEntradaComanda;
+    }
+
+    public void setValorEntradaComanda(Double valorEntradaComanda) {
+        this.valorEntradaComanda = valorEntradaComanda;
+    }
 
     
     public Integer getIdComanda() {
